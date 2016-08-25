@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcom#index'
 
   resources :posts
-  devise_for :users, controllers: {registrations: "registrations"}
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
