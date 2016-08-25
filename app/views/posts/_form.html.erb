@@ -1,25 +1,31 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= bootstrap_form_for(@post, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+
+  <% if @post.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
+  <div>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
+
+    <div class="field">
+        <%= f.text_area :content %>
+    </div>
+
   <div class="actions">
-    <%= f.submit %>
-  </div>
+        <%= f.submit %>
+    </div>
+
+
 <% end %>
+
+
+
