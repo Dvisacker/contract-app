@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Submissions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Key</th>
+      <th>Challenge</th>
+      <th>Submission text</th>
+      <th>Submission time</th>
+      <th>Complete</th>
+      <th>User</th>
+      <th>Admin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.project_id %></td>
+        <td><%= submission.key %></td>
+        <td><%= submission.challenge_id %></td>
+        <td><%= submission.submission_text %></td>
+        <td><%= submission.submission_time %></td>
+        <td><%= submission.complete %></td>
+        <td><%= submission.user_id %></td>
+        <td><%= submission.admin_id %></td>
+        <td><%= link_to 'Show', submission %></td>
+        <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
+        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Submission', new_submission_path %>

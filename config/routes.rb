@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :challenges
+  resources :submissions
+  resources :comments
   root 'welcom#index'
 
   resources :posts

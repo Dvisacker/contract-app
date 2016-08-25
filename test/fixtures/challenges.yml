@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyString
+  challenge_id: 1
+  time_created: 2016-08-25 13:41:53
+  code: MyString
+  hint1: MyString
+  hint2: MyString
+  user_viewcount: 1
+
+two:
+  title: MyString
+  body: MyString
+  challenge_id: 1
+  time_created: 2016-08-25 13:41:53
+  code: MyString
+  hint1: MyString
+  hint2: MyString
+  user_viewcount: 1

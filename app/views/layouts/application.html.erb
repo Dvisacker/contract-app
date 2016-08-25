@@ -34,6 +34,7 @@
                     <li>
                         <a href="#">Contact</a>
                     </li>
+
                     <%- if current_user %>
                     	<li>
 	                        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -46,6 +47,15 @@
 	                    <li>
 	                    	<%= link_to "Posts", posts_path %>
 	                    </li>
+
+                        <li>
+                            <%= link_to "Challenges", challenges_path %>
+                        </li>
+
+                        <li>
+                            <%= link_to "Make a new challenge", new_challenge_path %>
+                        </li>
+
                     <% else %>
 	                    <li>
 	                        <%= link_to "Sign In", new_user_session_path %>

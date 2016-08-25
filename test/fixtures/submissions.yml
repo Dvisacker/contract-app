@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 1
+  key: 1
+  challenge_id: 1
+  submission_text: MyString
+  submission_time: 2016-08-25 13:26:35
+  complete: false
+  user_id: 1
+  admin_id: 1
+
+two:
+  project_id: 1
+  key: 1
+  challenge_id: 1
+  submission_text: MyString
+  submission_time: 2016-08-25 13:26:35
+  complete: false
+  user_id: 1
+  admin_id: 1

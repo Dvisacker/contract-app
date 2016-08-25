@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @submission.project_id %>
+</p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @submission.key %>
+</p>
+
+<p>
+  <strong>Challenge:</strong>
+  <%= @submission.challenge_id %>
+</p>
+
+<p>
+  <strong>Submission text:</strong>
+  <%= @submission.submission_text %>
+</p>
+
+<p>
+  <strong>Submission time:</strong>
+  <%= @submission.submission_time %>
+</p>
+
+<p>
+  <strong>Complete:</strong>
+  <%= @submission.complete %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @submission.user_id %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @submission.admin_id %>
+</p>
+
+<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', submissions_path %>

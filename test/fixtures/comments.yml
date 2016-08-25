@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyString
+  user_id: 1
+  replies: MyString
+  timestamp: 2016-08-25 13:23:47
+
+two:
+  title: MyString
+  body: MyString
+  user_id: 1
+  replies: MyString
+  timestamp: 2016-08-25 13:23:47

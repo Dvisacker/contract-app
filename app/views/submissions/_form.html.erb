@@ -1,0 +1,49 @@
+<%= form_for(@submission) do |f| %>
+  <% if @submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+      <% @submission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :project_id %><br>
+    <%= f.number_field :project_id %>
+  </div>
+  <div class="field">
+    <%= f.label :key %><br>
+    <%= f.number_field :key %>
+  </div>
+  <div class="field">
+    <%= f.label :challenge_id %><br>
+    <%= f.number_field :challenge_id %>
+  </div>
+  <div class="field">
+    <%= f.label :submission_text %><br>
+    <%= f.text_field :submission_text %>
+  </div>
+  <div class="field">
+    <%= f.label :submission_time %><br>
+    <%= f.datetime_select :submission_time %>
+  </div>
+  <div class="field">
+    <%= f.label :complete %><br>
+    <%= f.check_box :complete %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_id %><br>
+    <%= f.number_field :admin_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

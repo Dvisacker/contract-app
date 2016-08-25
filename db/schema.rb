@@ -11,16 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824063511) do
+ActiveRecord::Schema.define(version: 20160825044930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "challenge_id"
+    t.datetime "time_created"
+    t.string   "code"
+    t.string   "hint1"
+    t.string   "hint2"
+    t.integer  "user_viewcount"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "user_id"
+    t.string   "replies"
+    t.datetime "timestamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "key"
+    t.integer  "challenge_id"
+    t.string   "submission_text"
+    t.datetime "submission_time"
+    t.boolean  "complete"
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,6 +72,10 @@ ActiveRecord::Schema.define(version: 20160824063511) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.boolean  "type"
+    t.string   "user_id"
+    t.string   "rating"
+    t.string   "token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

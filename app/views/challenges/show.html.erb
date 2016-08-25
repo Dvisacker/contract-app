@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @challenge.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @challenge.body %>
+</p>
+
+<p>
+  <strong>Challenge:</strong>
+  <%= @challenge.challenge_id %>
+</p>
+
+<p>
+  <strong>Time created:</strong>
+  <%= @challenge.time_created %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @challenge.code %>
+</p>
+
+<p>
+  <strong>Hint1:</strong>
+  <%= @challenge.hint1 %>
+</p>
+
+<p>
+  <strong>Hint2:</strong>
+  <%= @challenge.hint2 %>
+</p>
+
+<p>
+  <strong>User viewcount:</strong>
+  <%= @challenge.user_viewcount %>
+</p>
+
+<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<%= link_to 'Back', challenges_path %>
