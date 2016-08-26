@@ -1,0 +1,3 @@
+ In comment form : 
+
+ maybe add the replies : <%= f.hidden_field : replies %> so that the replies data is transmitted to the controller.

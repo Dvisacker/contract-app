@@ -12,26 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_area :title, cols: "40", rows: "1" %>
   </div>
+
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
+   <%= f.text_area :body, cols: "40", rows: "5" %>
+    <%= f.hidden_field :challenge_id %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :replies %><br>
-    <%= f.text_field :replies %>
-  </div>
-  <div class="field">
-    <%= f.label :timestamp %><br>
-    <%= f.datetime_select :timestamp %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

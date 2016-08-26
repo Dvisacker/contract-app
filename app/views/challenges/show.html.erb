@@ -1,44 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<p class = "well">
+  <strong>Title:</strong><br>
   <%= @challenge.title %>
 </p>
 
-<p>
-  <strong>Body:</strong>
+<p class = "well text-justify">
+  <strong>Body:</strong><br><br>
   <%= @challenge.body %>
 </p>
 
-<p>
-  <strong>Challenge:</strong>
-  <%= @challenge.challenge_id %>
-</p>
-
-<p>
-  <strong>Time created:</strong>
-  <%= @challenge.time_created %>
-</p>
-
-<p>
-  <strong>Code:</strong>
+<p class = "well text-justify">
+  <strong >Code:</strong><br><br>
   <%= @challenge.code %>
 </p>
 
-<p>
+<p class = "well text-justify">
   <strong>Hint1:</strong>
   <%= @challenge.hint1 %>
-</p>
-
-<p>
+  <br>
   <strong>Hint2:</strong>
   <%= @challenge.hint2 %>
 </p>
 
 <p>
-  <strong>User viewcount:</strong>
+  <strong>Challenge Number :</strong>
+  <%= @challenge.id %>
+  <strong>Time created:</strong>
+  <%= @challenge.created_at %>
+    <strong>User viewcount:</strong>
   <%= @challenge.user_viewcount %>
 </p>
 
+<div class="write-comment-container text-left">
+  <h3>Comment about this challenge :</h3>
+  <%= render 'comments/form' %>
+</div>
+
+<div class="comment-container text-left">
+  <h3>Latest comments</h3>
+  <% @comments.each do |comment| %>
+  <div class="row">
+    <div class="col-md-6">
+      <strong><%= comment.id %></strong>
+      <strong><%= comment.user_id %></strong>
+      <br />
+      <p><%= comment.body %></p>
+      <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<%= link_to 'Post comment', new_comment_path(@challenge) %> |
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <%= link_to 'Back', challenges_path %>
+
+
+

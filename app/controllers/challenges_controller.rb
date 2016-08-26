@@ -10,11 +10,15 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    @comments = @challenge.comments.all
+    @comment = @challenge.comments.build
   end
 
   # GET /challenges/new
   def new
     @challenge = Challenge.new
+    @challenge.user_viewcount = 0
+    @challenge.created_at= Time.now
   end
 
   # GET /challenges/1/edit
@@ -69,6 +73,6 @@ class ChallengesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
-      params.require(:challenge).permit(:title, :body, :challenge_id, :time_created, :code, :hint1, :hint2, :user_viewcount)
+      params.require(:challenge).permit(:id, :title, :body, :created_at, :code, :hint1, :hint2, :user_viewcount)
     end
 end

@@ -3,13 +3,15 @@
 one:
   title: MyString
   body: MyString
-  user_id: 1
+  user_id: 
+  challenge_id: 
   replies: MyString
-  timestamp: 2016-08-25 13:23:47
+  timestamp: 2016-08-25 17:16:56
 
 two:
   title: MyString
   body: MyString
-  user_id: 1
+  user_id: 
+  challenge_id: 
   replies: MyString
-  timestamp: 2016-08-25 13:23:47
+  timestamp: 2016-08-25 17:16:56

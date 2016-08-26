@@ -16,25 +16,16 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.text_field :body %>
+    <%= f.text_area :body, cols: "30", rows: "10" %>
   </div>
   <div class="field">
-    <%= f.number_field :challenge_id %>
-  </div>
-  <div class="field">
-    <%= f.datetime_select :time_created %>
-  </div>
-  <div class="field">
-    <%= f.text_field :code %>
+    <%= f.text_area :code, cols: "30", rows: "10" %>
   </div>
   <div class="field">
     <%= f.text_field :hint1 %>
   </div>
   <div class="field">
     <%= f.text_field :hint2 %>
-  </div>
-  <div class="field">
-    <%= f.number_field :user_viewcount %>
   </div>
   <div class="actions">
     <%= f.submit %>

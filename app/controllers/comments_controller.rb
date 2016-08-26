@@ -23,6 +23,19 @@ class CommentsController < ApplicationController
 
   # POST /comments
   # POST /comments.json
+  def create2
+    @comment = @challenge.comments.create(params[:comment].permit(:comment))
+    @comment.user_id = current_user.id
+    @comment.save
+
+    if @comment.save
+        redirect_to challenge_path(@challenge)
+    else
+        render 'new'
+    end
+  end
+
+
   def create
     @comment = Comment.new(comment_params)
 
@@ -66,9 +79,10 @@ class CommentsController < ApplicationController
     def set_comment
       @comment = Comment.find(params[:id])
     end
+    ## Maybe have to change it with user_id
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:title, :body, :user_id, :replies, :timestamp)
+      params.require(:comment).permit(:title, :body, :user_id, :challenge_id, :replies, :timestamp)
     end
-end
+  end
