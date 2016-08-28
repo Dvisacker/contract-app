@@ -1,5 +1,10 @@
 <h1>New Submission</h1>
 
+<p class = "well text-justify">
+  <strong>Challenge Text:</strong><br><br>
+  <%= @challenge.body %>
+</p>
+
 <%= render 'form' %>
 
-<%= link_to 'Back', submissions_path %>
+<%= link_to 'Back', challenge_submissions_path %>

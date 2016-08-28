@@ -1,0 +1,14 @@
+  <% @comments.each do |comment| %>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong><%= comment.user.username %></strong> at <%= comment.created_at %></p>
+      <p><%= comment.body %></p>
+
+      <%- if (current_user.user_type?) %> 
+        <p><%= link_to 'Delete', challenge_comment_path(@challenge, comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% else %>
+      <% end %>
+      <br>
+    </div>
+  </div>
+  <% end %>

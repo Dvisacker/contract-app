@@ -32,6 +32,14 @@
   <%= @challenge.user_viewcount %>
 </p>
 
+<div class="submit-button btn btn-primary">
+  <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
+</div>
+
+<div class="submit-button btn btn-primary">
+  <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
+</div>
+
 <div class="write-comment-container text-left">
   <h3>Comment about this challenge :</h3>
   <%= render 'comments/form' %>
@@ -39,16 +47,7 @@
 
 <div class="comment-container text-left">
   <h3>Latest comments</h3>
-  <% @comments.each do |comment| %>
-  <div class="row">
-    <div class="col-md-6">
-      <strong><%= comment.user_id %></strong>
-      <br />
-      <p><%= comment.body %></p>
-      <p><%= link_to 'Delete', challenge_comment_path(@challenge, comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    </div>
-  </div>
-<% end %>
+  <%= render 'comments/commentbox' %>
 </div>
 
 <%= link_to 'Post comment', new_challenge_comment_path(@challenge) %> |

@@ -10,33 +10,50 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+    challenge = Challenge.find(params[:challenge_id])
+    @submission = challenge.submissions.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @comment }
+    end
   end
 
   # GET /submissions/new
   def new
+    @challenge = Challenge.find(params[:challenge_id])
     @submission = Submission.new
+    respond_to do |format|
+      format.html { render :new }
+      format.xml  { render :xml => @submission }
+    end
   end
 
   # GET /submissions/1/edit
   def edit
+    challenge = Challenge.find(params[:challenge_id])
+    @submission = challenge.comments.find(params[:id])
   end
 
   # POST /submissions
   # POST /submissions.json
   def create
-    @submission = Submission.new(submission_params)
+      challenge = Challenge.find(params[:challenge_id])
+      @submission = challenge.submissions.create(submission_params)
+      @submission.user = current_user
+      @submission.challenge = challenge
 
     respond_to do |format|
       if @submission.save
-        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
-        format.json { render :show, status: :created, location: @submission }
+        format.html { redirect_to @submission.challenge, notice: 'Submission was successfully created.' }
+        format.json { render :show, status: :created, location: @submission.challenge }
       else
         format.html { render :new }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
   end
-
+  
   # PATCH/PUT /submissions/1
   # PATCH/PUT /submissions/1.json
   def update

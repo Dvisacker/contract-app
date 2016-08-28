@@ -1,7 +1,8 @@
-<%= form_for(@submission) do |f| %>
+<%= bootstrap_form_for([@challenge, @submission], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
+
   <% if @submission.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+      <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
 
       <ul>
       <% @submission.errors.full_messages.each do |message| %>
@@ -11,39 +12,13 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
-    <%= f.label :project_id %><br>
-    <%= f.number_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :key %><br>
-    <%= f.number_field :key %>
-  </div>
-  <div class="field">
-    <%= f.label :challenge_id %><br>
-    <%= f.number_field :challenge_id %>
-  </div>
-  <div class="field">
-    <%= f.label :submission_text %><br>
-    <%= f.text_field :submission_text %>
-  </div>
-  <div class="field">
-    <%= f.label :submission_time %><br>
-    <%= f.datetime_select :submission_time %>
-  </div>
-  <div class="field">
-    <%= f.label :complete %><br>
-    <%= f.check_box :complete %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :admin_id %><br>
-    <%= f.number_field :admin_id %>
+    <%= f.text_area :submission_text, cols: "120", rows: "10" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit your solution !", :class => "btn btn-primary" %>
   </div>
 <% end %>
+

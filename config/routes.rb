@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :challenges do
     resources :comments
+    resources :submissions
   end
   
   devise_for :users

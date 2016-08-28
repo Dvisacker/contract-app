@@ -44,8 +44,7 @@ class CommentsController < ApplicationController
   challenge = Challenge.find(params[:challenge_id])
   @comment = challenge.comments.create(comment_params)
   @comment.user = current_user
-
-  @comment.challenge_id = challenge.id
+  @comment.challenge = challenge
 
   respond_to do |format|
     if @comment.save
