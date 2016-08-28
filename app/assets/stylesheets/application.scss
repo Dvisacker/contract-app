@@ -19,6 +19,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/*
- 
- */
+ body > div > div > div > a {
+	 color: white;
+} 
+
+body > div > div > div > a:visited {
+	 color: white;
+} 

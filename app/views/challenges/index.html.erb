@@ -12,7 +12,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class = "text-left">
     <% @challenges.each do |challenge| %>
       <tr>
         <td><%= challenge.title %></td>
@@ -20,8 +20,13 @@
         <td><%= challenge.created_at %></td>
         <td><%= challenge.user_viewcount %></td>
         <td><%= link_to 'Show', challenge %></td>
-        <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-        <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <%- if (current_user.user_type?) %>
+          <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
+          <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%else%>
+        <%end%>
+
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +34,6 @@
 
 <br>
 
+<div class="button-container btn btn-primary">
 <%= link_to 'New Challenge', new_challenge_path %>
+</div>

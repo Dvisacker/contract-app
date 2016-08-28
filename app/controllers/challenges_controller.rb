@@ -12,6 +12,7 @@ class ChallengesController < ApplicationController
   def show
     @comments = @challenge.comments.all
     @comment = @challenge.comments.build
+    @comment.user = current_user
   end
 
   # GET /challenges/new

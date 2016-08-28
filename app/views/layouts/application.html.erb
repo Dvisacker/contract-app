@@ -44,9 +44,12 @@
                             <%= link_to "Challenges", challenges_path %>
                         </li>
 
-                        <li>
-                            <%= link_to "Make a new challenge", new_challenge_path %>
-                        </li>
+                        <%- if (current_user.user_type?) %> 
+                            <li>
+                                <%= link_to "Post a new challenge", new_challenge_path %>
+                            </li>
+                        <% else %>
+                        <% end %>
 
                     <% else %>
 	                    <li>
@@ -72,6 +75,15 @@
    			 <%= yield %>
     	</div>
     </div>
+
+    <br><br><br><br>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">© 2016 - Korestate</p>
+            <!-- <a href="#" class="navbar-btn btn-danger btn pull-right">Contact us</a> -->
+        </div>
+    </div>
+
 
 </body>
 

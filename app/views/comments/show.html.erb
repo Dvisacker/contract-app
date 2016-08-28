@@ -1,34 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @comment.title %>
-</p>
+<!-- This view is not needed I think -->
+<p> Empty page </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @comment.user %>
-</p>
-
-<p>
-  <strong>Challenge:</strong>
-  <%= @comment.challenge %>
-</p>
-
-<p>
-  <strong>Replies:</strong>
-  <%= @comment.replies %>
-</p>
-
-<p>
-  <strong>Timestamp:</strong>
-  <%= @comment.timestamp %>
-</p>
-
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back', challenge_comments_path %>
