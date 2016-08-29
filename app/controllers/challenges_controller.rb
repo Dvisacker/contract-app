@@ -10,6 +10,7 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    # comments are shown in the same view
     @comments = @challenge.comments.all
     @comment = @challenge.comments.build
     @comment.user = current_user
@@ -72,7 +73,6 @@ class ChallengesController < ApplicationController
       @challenge = Challenge.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
       params.require(:challenge).permit(:id, :title, :body, :created_at, :code, :hint1, :hint2, :user_viewcount)
     end

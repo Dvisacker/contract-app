@@ -1,44 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Project:</strong>
-  <%= @submission.project_id %>
+<!-- Replace with the username  -->
+<p class = "well">
+  <strong>Title:</strong><br>
+  <%= @submission.user_id %>
 </p>
 
-<p>
-  <strong>Key:</strong>
-  <%= @submission.key %>
-</p>
-
-<p>
-  <strong>Challenge:</strong>
-  <%= @submission.challenge_id %>
-</p>
-
-<p>
-  <strong>Submission text:</strong>
+<p class = "well text-justify">
+  <strong>Body:</strong><br><br>
   <%= @submission.submission_text %>
 </p>
 
 <p>
-  <strong>Submission time:</strong>
-  <%= @submission.submission_time %>
+  <strong>Submission Number :</strong>
+  <%= @submission.id %>
+  <strong>Time created:</strong>
+  <%= @submission.created_at %>
 </p>
 
-<p>
-  <strong>Complete:</strong>
-  <%= @submission.complete %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @submission.user_id %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @submission.admin_id %>
-</p>
-
-<%= link_to 'Edit', edit_submission_path(@submission) %> |
-<%= link_to 'Back', submissions_path %>
+<%= link_to 'Back', challenge_submissions_path(@submission.challenge) %>

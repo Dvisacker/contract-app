@@ -19,7 +19,7 @@
         <td><%= challenge.id %></td>
         <td><%= challenge.created_at %></td>
         <td><%= challenge.user_viewcount %></td>
-        <td><%= link_to 'Show', challenge %></td>
+        <td><%= link_to 'Show', challenge_path(challenge) %></td>
 
         <%- if (current_user.user_type?) %>
           <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>

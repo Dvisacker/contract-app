@@ -4,7 +4,6 @@ class CreateChallenges < ActiveRecord::Migration
       t.string :title
       t.string :body
       t.integer :challenge_id
-      t.datetime :time_created
       t.string :code
       t.string :hint1
       t.string :hint2

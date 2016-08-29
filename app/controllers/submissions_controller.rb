@@ -1,25 +1,32 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
 
-  # GET /submissions
-  # GET /submissions.json
+  # GET /challenges/:challenge_id/submissions 
+  # GET /challenges/:challenge_id/submissions.json
   def index
-    @submissions = Submission.all
+    challenge = Challenge.find(params[:challenge_id])
+    @submissions = challenge.submissions
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @submissions }
+    end
   end
 
-  # GET /submissions/1
-  # GET /submissions/1.json
+  # GET /challenges/:challenge_id/submissions/1
+  # GET /challenges/:challenge_id/submissions/1.json
   def show
     challenge = Challenge.find(params[:challenge_id])
     @submission = challenge.submissions.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @comment }
+      format.xml  { render :xml => @submissions }
     end
   end
 
-  # GET /submissions/new
+  # GET /challenges/:challenge_id/submissions/new
+  # GET /challenges/:challenge_id/submissions/new.json
   def new
     @challenge = Challenge.find(params[:challenge_id])
     @submission = Submission.new
@@ -32,7 +39,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1/edit
   def edit
     challenge = Challenge.find(params[:challenge_id])
-    @submission = challenge.comments.find(params[:id])
+    @submission = challenge.submissions.find(params[:id])
   end
 
   # POST /submissions
@@ -59,8 +66,8 @@ class SubmissionsController < ApplicationController
   def update
     respond_to do |format|
       if @submission.update(submission_params)
-        format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }
-        format.json { render :show, status: :ok, location: @submission }
+        format.html { redirect_to @submission.challenge, notice: 'Submission was successfully updated.' }
+        format.json { render :show, status: :ok, location: @submission.challenge }
       else
         format.html { render :edit }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
@@ -71,10 +78,14 @@ class SubmissionsController < ApplicationController
   # DELETE /submissions/1
   # DELETE /submissions/1.json
   def destroy
+
+    challenge = Challenge.find(params[:challenge_id])
+    @submission = challenge.submission.find(params[:id])
     @submission.destroy
+
     respond_to do |format|
-      format.html { redirect_to submissions_url, notice: 'Submission was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to(@submission.challenge, :notice => 'Submission was successfully deleted') }
+      format.xml  { render :xml => @submission, :status => :created, :location => @submission.challenge }
     end
   end
 

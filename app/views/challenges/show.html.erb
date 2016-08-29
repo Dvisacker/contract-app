@@ -37,8 +37,9 @@
 </div>
 
 <div class="submit-button btn btn-primary">
-  <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
+  <%= link_to 'View Submissions !', challenge_submissions_path(@challenge.id) %>
 </div>
+
 
 <div class="write-comment-container text-left">
   <h3>Comment about this challenge :</h3>
@@ -50,8 +51,6 @@
   <%= render 'comments/commentbox' %>
 </div>
 
-<%= link_to 'Post comment', new_challenge_comment_path(@challenge) %> |
-<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <%= link_to 'Back', root_path %>
 
 

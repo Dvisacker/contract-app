@@ -1,0 +1,24 @@
+<%= bootstrap_form_for([@submission.challenge, @submission], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
+
+  <% if @submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@submission.challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+
+      <ul>
+      <% @submission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.text_area :submission_text, cols: "120", rows: "10" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit your solution !", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
