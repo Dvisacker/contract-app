@@ -36,9 +36,11 @@
   <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
 </div>
 
-<div class="submit-button btn btn-primary">
-  <%= link_to 'View Submissions !', challenge_submissions_path(@challenge.id) %>
-</div>
+<%- if (current_user.user_type?) %> 
+  <div class="submit-button btn btn-primary">
+    <%= link_to 'View Submissions !', challenge_submissions_path(@challenge.id) %>
+  </div>
+<% end %>
 
 
 <div class="write-comment-container text-left">

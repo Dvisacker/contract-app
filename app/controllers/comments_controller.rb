@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   # Not sure why I wrote this
+  before_action :authenticate_user!
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /challenges/:challenge_id/comments 

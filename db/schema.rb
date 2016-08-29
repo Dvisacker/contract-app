@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826023532) do
+ActiveRecord::Schema.define(version: 20160829072315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20160826023532) do
   create_table "challenges", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
-    t.datetime "time_created"
     t.string   "code"
     t.string   "hint1"
     t.string   "hint2"
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 20160826023532) do
     t.integer  "user_id"
     t.integer  "challenge_id"
     t.string   "replies"
-    t.datetime "timestamp"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
