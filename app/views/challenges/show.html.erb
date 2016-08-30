@@ -1,21 +1,21 @@
 -<p id="notice"><%= notice %></p>
 
-<p class = "well">
-  <strong>Title:</strong><br>
+<h1 class = "jumbotron lead">
   <%= @challenge.title %>
-</p>
+</h1>
 
-<p class = "well text-justify">
-  <strong>Body:</strong><br><br>
+<h2>Challenge Statement</h2><br>
+<p class = "jumbotron text-justify">
   <%= @challenge.body %>
 </p>
 
-<p class = "well text-justify">
+<h2>Challenge Code</h2><br>
+<p class = "jumbotron text-justify">
   <strong >Code:</strong><br><br>
   <%= @challenge.code %>
 </p>
 
-<p class = "well text-justify">
+<p class = "jumbotron text-justify">
   <strong>Hint1:</strong>
   <%= @challenge.hint1 %>
   <br>

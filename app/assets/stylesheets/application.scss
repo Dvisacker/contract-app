@@ -27,29 +27,6 @@ body {
 	background-image: url('app/assets/images/ethereum.jpg');
 }
 
-//  body > div > div > div > a {
-// 	 color: white;
-// } 
-
-// body > div > div > div > a:visited {
-// 	 color: white;
-// }
-
-// a {
-// 	background-color: inherit;
-//     color: inherit;
-// }
-// a{ 
-// 	color: white;
-// 	&:hover {
-// 		background-color: transparent; 
-// 		text-decoration: none; 
-// 	}
-// 	&:visited {
-// 		color: white;
-// 	}
-// }
-
 .button-styling {
 	padding: 10px 40px;
 	margin: 20px;
@@ -74,6 +51,16 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+
+	a{
+		&:hover {
+			background-color: transparent; 
+			text-decoration: none; 
+		}
+		&:visited {
+			color: white;
+		}
+	}
 }
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
