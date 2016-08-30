@@ -1,33 +1,33 @@
 <%= form_for [@challenge,@comment] do |f| %>
+
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
+      <br>
       <ul>
       <% @comment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
+      <br>
     </div>
-<% end %>
+  <% end %>
 
-  <div class="field">
-    <%= f.text_area :title, cols: "40", rows: "1", placeholder: "Title"%>
-  </div>
-
-  <div class="field">
-   <%= f.text_area :body, cols: "40", rows: "5", placeholder: "Write your comment"%>
-    <%= f.hidden_field :user_id %>
-  </div>
+    <div class="row">
+        <div class="col-sm-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong><%= @comment.user.username %></strong> <span class="text-muted"><%= Time.now %></span>
+            </div>
+              <%= f.text_area :body, placeholder: "Write your comment", :class => "panel-body" %>
+              <%= f.hidden_field :user_id %>
+              <%= f.hidden_field :challenge_id %>
+        </div><!-- /panel panel-default -->
+      </div><!-- /col-sm-5 -->
+    </div><!-- /row -->
 
   <div class="actions">
-    <%= f.submit "Post Comment", :class => "btn btn-primary" %>
-  </div>
-  
+    <%= f.submit "Post Comment", :class => "btn btn-primary btn-lg gradient" %>
+  </div> 
 <% end %>
-
-
-
-
-
 

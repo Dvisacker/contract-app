@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LoginApp</title>
+  <title>GLASS</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -49,6 +49,9 @@
                         <%- if (current_user.user_type?) %> 
                             <li>
                                 <%= link_to "Post a new challenge", new_challenge_path %>
+                            </li>
+                            <li>
+                                <%= link_to "Admin Panel", rails_admin_path %>
                             </li>
                         <% else %>
                         <% end %>

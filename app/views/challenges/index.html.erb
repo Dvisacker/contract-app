@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Challenges</h1>
+<div class="header-container">
+  <h1>Listing Challenges</h1>
+</div>
 
-<table class="table table-striped col-sm-8">
-  <thead>
+<table class="table col-sm-8 table-striped">
+  <thead class="thead-inverse">
     <tr>
       <th>Title</th>
-      <th>Challenge</th>
+      <th>Challenge ID</th>
       <th>Time created</th>
       <th>User viewcount</th>
     </tr>
@@ -35,7 +37,7 @@
 <br>
 
 <%- if (current_user.user_type?) %> 
-  <div class="button-container btn btn-primary">
-  <%= link_to 'New Challenge', new_challenge_path %>
-  </div>
+  <button type="button" class="btn btn-primary btn-lg gradient">
+    <%= link_to 'New Challenge', new_challenge_path %>
+  </button>
 <%end %>

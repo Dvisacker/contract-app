@@ -3,12 +3,13 @@
   <% if @submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@submission.challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
-
+      <br>
       <ul>
       <% @submission.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
+      <br>
     </div>
   <% end %>
 
@@ -18,7 +19,7 @@
     <%= f.text_area :submission_text, cols: "120", rows: "10" %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit your solution !", :class => "btn btn-primary" %>
+    <%= f.submit "Submit your solution !", :class => "btn btn-primary btn-lg gradient" %>
   </div>
 <% end %>
 

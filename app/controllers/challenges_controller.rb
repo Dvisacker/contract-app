@@ -12,6 +12,7 @@ class ChallengesController < ApplicationController
   # GET /challenges/1.json
   def show
     # comments are shown in the same view
+    @challenge.increment!(:user_viewcount)
     @comments = @challenge.comments.all
     @comment = @challenge.comments.build
     @comment.user = current_user
