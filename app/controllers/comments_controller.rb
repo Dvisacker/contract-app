@@ -77,7 +77,6 @@ end
   end
 
 
-
   # DELETE /posts/:post_id/comments/1
   # DELETE /posts/:post_id/comments/1.xml
   def destroy

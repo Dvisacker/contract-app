@@ -3,12 +3,13 @@
   <% if @submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@submission.challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
-
+      <br>
       <ul>
       <% @submission.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
+      <br>
     </div>
   <% end %>
 
