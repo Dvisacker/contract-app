@@ -19,7 +19,7 @@
             <div class="panel-heading">
               <strong><%= @comment.user.username %></strong> <span class="text-muted"><%= Time.now %></span>
             </div>
-              <%= f.text_area :body, cols: "40", rows: "5", placeholder: "Write your comment", :class => "panel-body", :id => "message_area" %>
+              <%= f.text_area :body, placeholder: "Write your comment", :class => "panel-body" %>
               <%= f.hidden_field :user_id %>
               <%= f.hidden_field :challenge_id %>
         </div><!-- /panel panel-default -->

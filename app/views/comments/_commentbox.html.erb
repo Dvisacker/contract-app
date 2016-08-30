@@ -11,10 +11,6 @@
       </div><!-- /panel-body -->
     </div><!-- /panel panel-default -->
     <div>
-      <%- if (current_user.user_type?) %> 
-          <p><%= link_to 'Delete', challenge_comment_path(@challenge, comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      <% else %>
-      <% end %>
     </div>
   </div><!-- /col-sm-5 -->
   </div><!-- /row -->
