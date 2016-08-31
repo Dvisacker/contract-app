@@ -10,9 +10,9 @@
 <p class = "jumbotron text-justify">
   <strong >Code:</strong><br><br>
   <%= @challenge.code %>
-</p>
+  
+  <br><br>
 
-<p class = "jumbotron text-justify">
   <strong>Hint1:</strong>
   <%= @challenge.hint1 %>
   <br>
@@ -42,12 +42,12 @@
 
 
 <div class="write-comment-container text-left">
-  <h3>Comment about this challenge :</h3>
+  <h2>Comment about this challenge :</h2>
   <%= render 'comments/form' %>
 </div>
 
 <div class="comment-container text-left">
-  <h3>Latest comments</h3>
+  <h2>Latest comments</h2>
   <%= render 'comments/commentbox' %>
 </div>
 

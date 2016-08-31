@@ -4,17 +4,18 @@
   <h1>Listing Challenges</h1>
 </div>
 
-<table class="table col-sm-8 table-striped">
+<table class="table col-sm-8">
   <thead class="thead-inverse">
     <tr>
       <th>Title</th>
       <th>Challenge ID</th>
       <th>Time created</th>
       <th>User viewcount</th>
+      <th></th>
     </tr>
   </thead>
 
-  <tbody class = "text-left">
+  <tbody class = "text-left table-bordered">
     <% @challenges.each do |challenge| %>
       <tr>
         <td><%= challenge.title %></td>
