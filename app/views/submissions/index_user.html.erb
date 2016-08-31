@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<div class="header-container">
+  <h1>Your submissions</h1>
+</div>  
+
+<table class="table table-striped col-sm-8">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Time created</th>
+    </tr>
+  </thead>
+
+  <tbody class = "text-left">
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= truncate(submission.submission_text, length: 100) %></td>
+        <td><%= submission.created_at %></td>
+
+        <td><%= link_to 'Show', [submission.challenge, submission] %></td>
+        <td><%= link_to 'Edit', edit_challenge_submission_path(submission.challenge, submission) %></td>
+        <td><%= link_to 'Destroy', [submission.challenge, submission], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'List of challenges', challenges_path %>

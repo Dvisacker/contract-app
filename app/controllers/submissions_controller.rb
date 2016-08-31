@@ -14,6 +14,17 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def index_user
+    user = User.find(params[:user_id])
+    @submissions = user.submissions
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @submissions }
+    end
+  end
+
+
   # GET /challenges/:challenge_id/submissions/1
   # GET /challenges/:challenge_id/submissions/1.json
   def show

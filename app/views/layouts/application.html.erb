@@ -50,6 +50,10 @@
                         <li>
                             <%= link_to "Challenges", challenges_path %>
                         </li>
+
+                        <li>
+                            <%= link_to "View your submissions", user_submissions_path(current_user) %>
+                        </li>
                         
 
                         <!-- if the user is an admin, we allow to post new challenges and to view the submissions -->
