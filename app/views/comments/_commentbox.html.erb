@@ -4,7 +4,7 @@
     <div class="col-sm-5">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <strong><%= comment.user.username %></strong> <span class="text-muted"><%= comment.created_at %></span>
+          <strong><%= comment.user.username %></strong> <span class="text-muted pull-right"><%= comment.created_at.to_formatted_s(:short) %></span>
         </div>
         <div class="panel-body">
           <%= comment.body %>
