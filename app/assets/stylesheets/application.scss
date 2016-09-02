@@ -13,11 +13,12 @@
  *
 
  *= require_tree .
- *= require_self
  *= require rails_bootstrap_forms
  *= require codemirror
+ *= require codemirror/themes/monokai
+ *= require codemirror/addon/fold/foldgutter
+ *= require codemirror/addon/dialog/dialog
  */
-
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -32,6 +33,12 @@ body {
     background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 65%, rgba(224,220,224,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0dce0', GradientType=1 );
 }
+
+.CodeMirror {
+    text-align: left;
+    height: 500px;
+}
+
 
 
 .logo {

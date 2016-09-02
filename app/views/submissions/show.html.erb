@@ -1,22 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<!-- Replace with the username  -->
-<p class = "well">
-  <strong>Title:</strong><br>
-  <%= @submission.user_id %>
-</p>
-
-<p class = "well text-justify">
-  <strong>Body:</strong><br><br>
-  <%= @submission.submission_text %>
-</p>
+<strong>Code submitted on <%= @submission.created_at.to_formatted_s(:short) %> </strong><br><br>
+<textarea class = "codemirror-textarea"><%= @submission.submission_text %></textarea>
 
 <p>
   <strong>Submission Number :</strong>
   <%= @submission.id %>
-  <strong>Time created:</strong>
-  <%= @submission.created_at %>
 </p>
-
 
 <%= link_to 'Back', challenge_submissions_path(@submission.challenge) %>
