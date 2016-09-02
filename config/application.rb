@@ -22,8 +22,8 @@ module LoginApp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    # config.assets.precompile += ["codemirror*", "codemirror/**/*"]
-    # config.assets.precompile += ["codemirrorjs*", "codemirrorjs/**/*"]
-    # config.assets.precompile += ["codemirrorcss*", "codemirrorcss/**/*"]
+    config.assets.initialize_on_precompile = false
+    config.assets.compress = false
+
   end
 end
