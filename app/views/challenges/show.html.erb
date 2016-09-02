@@ -1,26 +1,22 @@
--<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <h2>Challenge Statement</h2><br>
-<p class = "jumbotron text-justify">
+<p class = "well text-justify">
   <strong><%= @challenge.title %></strong><br><br>
   <%= @challenge.body %>
 </p>
 
 <h2>Challenge Code</h2><br>
-<p class = "jumbotron text-justify">
-  <strong >Code:</strong><br><br>
-  <%= @challenge.code %>
-  
-  <br><br>
+<textarea class = "codemirror-textarea"><%= @challenge.code %></textarea>
 
+<p class = "well text-justify">
   <strong>Hint1:</strong>
   <%= @challenge.hint1 %>
   <br>
   <strong>Hint2:</strong>
   <%= @challenge.hint2 %>
-</p>
-
 <p>
+
   <strong>Challenge Number :</strong>
   <%= @challenge.id %> |
   <strong>Time created:</strong>
@@ -52,6 +48,7 @@
 </div>
 
 <%= link_to 'Back', root_path %>
+
 
 
 
