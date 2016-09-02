@@ -19,8 +19,7 @@
 //= require codemirror
 
 
-
-//= require codemirror/modes/javascript
+//= require codemirror/mode/javascript
 //= require codemirror/keymap/sublime
 //= require code_submission.js
 //= require codemirror/addon/search/searchcursor.js
