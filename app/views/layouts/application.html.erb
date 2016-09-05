@@ -1,87 +1,106 @@
 <!DOCTYPE html>
 <html>
+
+
 <head>
-  <title>GLASS</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <meta property="og:url"                content="http://www.glasshunt.co" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="Glass Hunt: Exploit Blockchains" />
+    <meta property="og:description"        content="There are funds stuck in blockchains and it's time for you to get them out." />
+    <meta property="og:image"              content="http://www.glasshunt.co/images/yes2.png" />
+
+    <link rel="shortcut icon" href="cssglass/images/favicon/favicon.ico" type="image/x-icon">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <style>
+        .CodeMirror {border-top: 1px solid #eee; border-bottom: 1px solid #eee; line-height: 1.3; height: 500px}
+        .CodeMirror-linenumbers { padding: 0 8px; }
+        article::-webkit-scrollbar { 
+            display: none; 
+        }
+    </style>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Begin Fixed Navigation -->
+    <header id="main-nav" class="main-navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <div id="navigation" class="toggle-btn-mnu">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                </div>
 
-                <ul class="nav navbar-nav">
-                    <li>
-                        <h3 class="logo">GLASS</h3>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav pull-right">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-
-                    <%- if current_user %>
-                    	<li>
-	                        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-	                    </li>
-
-                        <li>
-                            <%= link_to "Challenges", challenges_path %>
-                        </li>
-
-                        <li>
-                            <%= link_to "View your submissions", user_submissions_path(current_user) %>
-                        </li>
+                <!-- Begin Slide Menu -->
+                <div id="slide_out_menu">   
+                    <div class="menu-close"><i class="fa fa-times"></i></div>
+                    <ul class="socials text-center">
+                        <li><a href="http://twitter.com/theglasshunt" target="_blank"><i class="fa fa-twitter" ></i></a></li>
+                        <li><a href="https://www.facebook.com/glasshunt/" target="_blank"><i class="fa fa-facebook" ></i></a></li>
                         
-
-                        <!-- if the user is an admin, we allow to post new challenges and to view the submissions -->
-                        <%- if (current_user.user_type?) %> 
+                        <li><a href="http://glasshunt.tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                        
+                    </ul>
+                    <div class="slide-logo text-center">
+                        <a href="index.html"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
+                    </div>
+                    <nav class="main-mnu">
+                        <ul>
                             <li>
-                                <%= link_to "Post a new challenge", new_challenge_path %>
+                                <a href="#header">Home</a>
                             </li>
                             <li>
-                                <%= link_to "Admin Panel", rails_admin_path %>
+                                <a href="#preview-app">Preview</a>
                             </li>
-                        <% else %>
-                        <% end %>
+                            <li>
+                                <a href="#overview">Get Glass</a>
+                            </li>
+                            <li>
+                                <a href="#hackerschool">Hacker School</a>
+                            </li>
+                            <li>
+                                <a href="#newsletter">Newsletter</a>
+                            </li>
+                            <li>
+                                <a href="#why">Why</a>
+                            </li>
+                            <li>
+                                <a href="#who">Who We Are</a>
+                            </li>
+                            <li>
+                                <a href="#app-faq">Questions & Answers</a>
+                            </li>
+                            <li>
+                                <a href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>  
+                </div>
+                <!-- End Slide Menu -->
 
-                    <% else %>
-	                    <li>
-	                        <%= link_to "Sign In", new_user_session_path %>
-	                    </li>
+                <div class="col-lg-7 col-md-7 col-sm-11 col-xs-10">
+                    <h1 class="logo caps text-left">
 
-	                    <li>
-	                        <%= link_to "Sign Up", new_user_registration_path %>
-	                    </li>
-	                <% end %>
-                </ul>
+                     <a href="index.html"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
+                    </h1>
+                </div>
+                <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
+                    <p class="slogan text-right">The token and dev playground, rewarding hackers to find exploits in blockchains.</p>
+                </div>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+    </header>
+    <!-- End Fixed Navigation -->
 
     <!-- Page Content -->
 

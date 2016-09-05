@@ -16,14 +16,14 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require bootstrap-sprockets
+
+
 //= require codemirror
-
-
 //= require codemirror/mode/javascript/javascript
 //= require codemirror/keymap/sublime
-//= require code_submission.js
-//= require codemirror/addon/search/searchcursor.js
-//= require codemirror/addon/search/search.js
+//= require code_submission
+//= require codemirror/addon/search/searchcursor
+//= require codemirror/addon/search/search
 //= require codemirror/addon/dialog/dialog
 //= require codemirror/addon/edit/matchbrackets
 //= require codemirror/addon/edit/closebrackets
@@ -31,6 +31,16 @@
 //= require codemirror/addon/wrap/hardwrap
 //= require codemirror/addon/fold/foldcode
 //= require codemirror/addon/fold/brace-fold
+
+//= require jscongrats/aes-enc
+//= require jscongrats/base64
+//= require jscongrats/mouse
+//= require jscongrats/PGencode
+//= require jscongrats/rsa
+//= require jscongrats/scripts
+
+//= require owl/owl.carousel.min
+//= require modernizr/modernizr
 
 
 
