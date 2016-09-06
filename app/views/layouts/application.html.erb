@@ -87,16 +87,9 @@
 
                     <%- if current_user %>
                         <li>
-                            <%= link_to "Log out", destroy_user_session_path, :method => :get %>
-                        </li>
-
-
-
-                        <li>
                             <%= link_to "View your submissions", user_submissions_path(current_user) %>
                         </li>
-                        
-
+                    
                         <!-- if the user is an admin, we allow to post new challenges and to view the submissions -->
                         <%- if (current_user.user_type?) %> 
                             <li>
@@ -107,6 +100,10 @@
                             </li>
                         <% else %>
                         <% end %>
+
+                        <li>
+                            <%= link_to "Log out", destroy_user_session_path, :method => :get %>
+                        </li>
 
                     <% else %>
                         <li>
