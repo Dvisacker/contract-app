@@ -24,7 +24,7 @@ module ContractApp
     # config.assets.initialize_on_precompile = false
     # config.assets.compress = false
     # config.autoload_paths << Rails.root.join('lib')
-    config.serve_static_files = true
+    config.serve_static_assets = true
 
   end
 end
