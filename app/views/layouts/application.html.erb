@@ -26,15 +26,15 @@
         }
     </style>
 
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!-- add data-turbolinks-track => true if needed   -->
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
 
     <div id="loader" style="width:100%; height:100%; background-color:white; position:fixed; top:0px; left:0px; text-align:center; padding-top:20%; z-index:200">
 
 
-        <img src="images/logo_small.png" class="bounce animated">
+        <%=image_tag("logo_small.png", class: "bounce animated")%>
         <br><br><br>
         <center>
         <h1 class="logo caps" style="font-size:15px">Glass Hunt</h1>
@@ -52,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                    <div id="navigation" class="toggle-btn-mnu">
+                    <div id="navigation" class="toggle-btn-mnu open">
                         <i class="fa fa-bars"></i>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     <div class="slide-logo text-center">
                         <a href="index.html"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
                     </div>
-                    
+
                     <nav class="main-mnu">
                         <ul>
                             <li>

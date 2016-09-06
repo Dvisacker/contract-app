@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-	// typerListen();
-	// setSublime();
-	// autodemo();
+	typerListen();
+	setSublime();
+	autodemo();
 	"use strict";
 
 	// Wow Animations
