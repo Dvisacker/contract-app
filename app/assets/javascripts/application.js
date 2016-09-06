@@ -18,7 +18,6 @@
 
 //= require jquery/jquery-3.1.0.min
 
-
 //= require js/aes-enc
 //= require js/base64
 //= require js/mouse
