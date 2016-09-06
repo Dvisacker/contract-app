@@ -2,16 +2,61 @@
 <p id="notice"><%= notice %></p>
 
 <div class="header-container">
-  <h1>Listing Challenges</h1>
+  <h1 class="smartHead">Smart Contract Challenges</h1>
 </div>
+
+<style>
+
+.smartHead{
+  padding-left:15px;
+
+}
+
+
+table{
+  margin-top:20px;
+  width:100% !important;
+  margin-left:2%;
+
+}
+
+table td{
+  background-color:white;
+  padding-left:10px;
+  width:48% !important;
+  max-width:48%;
+  overflow:scroll;
+  text-align:left;
+  border-width:2px;
+  border-color: grey;
+  border-style: solid;
+
+  padding-top:20px;
+  padding-bottom:20px;
+
+}
+
+
+th{
+
+  text-align:left !important;
+  padding-left:10px;
+}
+
+tr a{
+  color:blue !important;
+  text-decoration: underline;
+
+}
+
+</style>
 
 <table class="table col-sm-8">
   <thead class="thead-inverse">
     <tr>
       <th>Title</th>
-      <th>Challenge ID</th>
-      <th>Time created</th>
-      <th>User viewcount</th>
+      <th>Uploaded</th>
+      <!--<th>User viewcount</th>-->
       <th></th>
     </tr>
   </thead>
@@ -19,11 +64,9 @@
   <tbody class = "text-left table-bordered">
     <% @challenges.each do |challenge| %>
       <tr>
-        <td><%= challenge.title %></td>
-        <td><%= challenge.id %></td>
+        <td><%= link_to challenge.title, challenge_path(challenge) %></td>
         <td><%= challenge.created_at %></td>
-        <td><%= challenge.user_viewcount %></td>
-        <td><%= link_to 'Show', challenge_path(challenge) %></td>
+      <!--  <td><%= challenge.user_viewcount %></td>-->
         
         <%- if current_user %>
           <%- if (current_user.user_type?) %>

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-
+	if( $(".codemirror-textarea")[0].length !=0){
 	// text-editor with a fixed size
 	var code = $(".codemirror-textarea")[0];
 	var editor = CodeMirror.fromTextArea(code , {
@@ -15,4 +15,6 @@ $(document).ready(function() {
 		showCursorWhenSelecting: true,
 		tabSize: 2
 	});
+
+}
 });

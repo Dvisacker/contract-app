@@ -1,6 +1,6 @@
 <div class="bring-down">
 <div class="header-container">
-  <h2>Register your account</h2>
+  <h2 class="center-text header-margin">Register your account</h2>
 </div>
 
 
@@ -8,22 +8,28 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-      <%= f.label :email, class: "col-sm-offset-1 col-sm-2 control-label" %>
+      <%= f.label :email, class: "col-sm-offset-2 col-sm-2 control-label" %>
       <div class="col-sm-6">
           <%= f.email_field :email, class: "form-control" %>
       </div>
   </div>
 
+  <br>
+  <br>
+
     <div class="form-group">
-      <%= f.label :username, class: "col-sm-offset-1 col-sm-2 control-label" %>
+      <%= f.label :username, class: "col-sm-offset-2 col-sm-2 control-label" %>
       <div class="col-sm-6">
           <%= f.text_field :username, class: "form-control" %>
       </div>
   </div>
 
+  <br>
+  <br>
+
 
   <div class="form-group">
-      <%= f.label :password, class: " col-sm-offset-1 col-sm-2 control-label" %>
+      <%= f.label :password, class: " col-sm-offset-2 col-sm-2 control-label" %>
       <div class="col-sm-6">
         <!--   <% if @minimum_password_length %>
            <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -32,20 +38,26 @@
       </div>
   </div>
 
+  <br>
+  <br>
+
   <div class="form-group">
-      <%= f.label :password_confirmation, class: "col-sm-offset-1 col-sm-2 control-label" %>
+      <%= f.label :password_confirmation, class: "col-sm-offset-2 col-sm-2 control-label" %>
       <div class="col-sm-6">
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
   </div>
 
-  <div class="form-group">
+  <br>
+  <br>
+
+  <div class="form-group button-margin">
       <div class="col-sm-offset-3 col-sm-6">
           <%= f.submit "Register", class: "btn btn-primary btn-lg gradient button-styling" %>
       </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group center-text">
       <div class="col-sm-offset-3 col-sm-6">
           <%= render "devise/shared/links" %>
       </div>

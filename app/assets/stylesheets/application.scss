@@ -13,18 +13,22 @@
  *
  * may have to require codemirror/addon/fold/foldgutter
  * may have to require codemirror/addon/dialog/dialog
- *
-
-  * require codemirror
+ * require codemirror
  * require codemirror/lib/codemirror
  * require codemirror/theme/monokai
  * require codemirror/addon/fold/foldgutter
  * require codemirror/addon/dialog/dialog
 
- *= require_tree .
- *= require rails_bootstrap_forms
- *= require bootstrap/css/bootstrap-grid.min
 
+
+
+ *= require_tree .
+
+ *= require codemirror
+ *= require codemirror/lib/codemirror
+ *= require codemirror/theme/monokai
+ *= require codemirror/addon/fold/foldgutter
+ *= require codemirror/addon/dialog/dialog
 
 
  *= require cssglass/main_green
@@ -36,6 +40,9 @@
  *= require owl/owl.theme
 
  *= require fonts/font-awesome/css/font-awesome.min
+
+ *= require bootstrap/css/bootstrap-grid.min
+ 
 
 */
 
