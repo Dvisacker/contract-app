@@ -5,7 +5,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 
-module LoginApp
+module ContractApp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -23,7 +23,8 @@ module LoginApp
     config.active_record.raise_in_transactional_callbacks = true
     # config.assets.initialize_on_precompile = false
     # config.assets.compress = false
-    config.autoload_paths << Rails.root.join('lib')
+    # config.autoload_paths << Rails.root.join('lib')
+    config.serve_static_files = true
 
   end
 end

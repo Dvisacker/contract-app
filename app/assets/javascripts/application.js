@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 
 
+
 //= require codemirror
 //= require codemirror/mode/javascript/javascript
 //= require codemirror/keymap/sublime
@@ -32,12 +33,12 @@
 //= require codemirror/addon/fold/foldcode
 //= require codemirror/addon/fold/brace-fold
 
-//= require jscongrats/aes-enc
-//= require jscongrats/base64
-//= require jscongrats/mouse
-//= require jscongrats/PGencode
-//= require jscongrats/rsa
-//= require jscongrats/scripts
+//= require js/aes-enc
+//= require js/base64
+//= require js/mouse
+//= require js/PGencode
+//= require js/rsa
+//= require js/scripts
 
 //= require owl/owl.carousel.min
 //= require modernizr/modernizr

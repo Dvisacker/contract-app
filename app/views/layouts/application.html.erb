@@ -3,12 +3,16 @@
 
 
 <head>
+    <meta charset="utf-8">
     <meta property="og:url"                content="http://www.glasshunt.co" />
     <meta property="og:type"               content="website" />
     <meta property="og:title"              content="Glass Hunt: Exploit Blockchains" />
     <meta property="og:description"        content="There are funds stuck in blockchains and it's time for you to get them out." />
     <meta property="og:image"              content="http://www.glasshunt.co/images/yes2.png" />
 
+
+    <title>Glass Hunt | Celebrating Hackers</title>
+    <meta name="description" content="Glass Hunt is developer playground, rewarding hackers to find exploits in blockchains.">
     <link rel="shortcut icon" href="cssglass/images/favicon/favicon.ico" type="image/x-icon">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +30,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
+    <div id="loader" style="width:100%; height:100%; background-color:white; position:fixed; top:0px; left:0px; text-align:center; padding-top:20%; z-index:200">
+
+
+        <img src="images/logo_small.png" class="bounce animated">
+        <br><br><br>
+        <center>
+        <h1 class="logo caps" style="font-size:15px">Glass Hunt</h1>
+        </center>
+
+    </div>
+
 </head>
 
 
@@ -44,6 +60,7 @@
                 <!-- Begin Slide Menu -->
                 <div id="slide_out_menu">   
                     <div class="menu-close"><i class="fa fa-times"></i></div>
+
                     <ul class="socials text-center">
                         <li><a href="http://twitter.com/theglasshunt" target="_blank"><i class="fa fa-twitter" ></i></a></li>
                         <li><a href="https://www.facebook.com/glasshunt/" target="_blank"><i class="fa fa-facebook" ></i></a></li>
@@ -51,9 +68,11 @@
                         <li><a href="http://glasshunt.tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                         
                     </ul>
+
                     <div class="slide-logo text-center">
                         <a href="index.html"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
                     </div>
+                    
                     <nav class="main-mnu">
                         <ul>
                             <li>
