@@ -405,7 +405,8 @@ html.js .loader_inner {
 
 /*Begin Header*/
 #header {
-	background-image: url(../images/coder.jpg);
+	background-image: url(/images/coder.jpg);
+	background-image: url(/images/coder.jpg);
 	background-position: center;
 	background-size: cover;
 	overflow: hidden;
@@ -702,4 +703,41 @@ footer .socials li a {
 	font-weight: 300;
 	color: #555;
 }
+
 /*End footer*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* David Code */
+.bring-down {
+	margin-top: 80px;
+}
+
+.center-text {
+	text-align: center;
+}

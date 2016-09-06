@@ -11,24 +11,26 @@
 // about supported directives.
 // maybe have to require turbolinks
 // maybe have to require bootstrap-sprockets
-// maybe have to require codemirror/addon/search/searchcursor
-// maybe have to require codemirror/addon/search/search
-// maybe have to require codemirror/addon/dialog/dialog
-// maybe have to require codemirror/addon/edit/matchbrackets
-// maybe have to require codemirror/addon/edit/closebrackets
-// maybe have to require codemirror/addon/comment/comment
-// maybe have to require codemirror/addon/wrap/hardwrap
-// maybe have to require codemirror/addon/fold/foldcode
-// maybe have to require codemirror/addon/fold/brace-fold
+
+// require codemirror
+// require codemirror/lib/codemirror
+// require codemirror/mode/javascript/javascript
+// require codemirror/keymap/sublime
+// require codemirror/addon/search/searchcursor
+// require codemirror/addon/search/search
+// require codemirror/addon/dialog/dialog
+// require codemirror/addon/edit/matchbrackets
+// require codemirror/addon/edit/closebrackets
+// require codemirror/addon/comment/comment
+// require codemirror/addon/wrap/hardwrap
+// require codemirror/addon/fold/foldcode
+// require codemirror/addon/fold/brace-fold
+// require code_submission
 
 
 
 //= require jquery/jquery-3.1.0.min
-//= require codemirror
-//= require codemirror/lib/codemirror
-//= require codemirror/mode/javascript/javascript
-//= require codemirror/keymap/sublime
-//= require code_submission
+
 //= require js/aes-enc
 //= require js/base64
 //= require js/mouse
