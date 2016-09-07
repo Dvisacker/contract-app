@@ -1,93 +1,66 @@
-<div class="bring-down">
-<p id="notice"><%= notice %></p>
-
-<div class="header-container">
-  <h1 class="smartHead">Smart Contract Challenges</h1>
-</div>
-
 <style>
-
-.smartHead{
-  padding-left:15px;
-
-}
-
-
-table{
-  margin-top:20px;
-  width:100% !important;
-  margin-left:2%;
-
-}
-
-table td{
-  background-color:white;
-  padding-left:10px;
-  width:48% !important;
-  max-width:48%;
-  overflow:scroll;
-  text-align:left;
-  border-width:2px;
-  border-color: grey;
-  border-style: solid;
-
-  padding-top:20px;
-  padding-bottom:20px;
-
-}
-
-
-th{
-
-  text-align:left !important;
-  padding-left:10px;
-}
-
-tr a{
-  color:blue !important;
-  text-decoration: underline;
-
-}
-
 </style>
 
-<table class="table col-sm-8">
-  <thead class="thead-inverse">
-    <tr>
-      <th>Title</th>
-      <th>Uploaded</th>
-      <!--<th>User viewcount</th>-->
-      <th></th>
-    </tr>
-  </thead>
+<!-- Page content begin -->
+<div class="page-container">
 
-  <tbody class = "text-left table-bordered">
-    <% @challenges.each do |challenge| %>
-      <tr>
-        <td><%= link_to challenge.title, challenge_path(challenge) %></td>
-        <td><%= challenge.created_at %></td>
-      <!--  <td><%= challenge.user_viewcount %></td>-->
-        
-        <%- if current_user %>
-          <%- if (current_user.user_type?) %>
-            <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-            <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <%else%>
-          <%end%>
-        <%end%>
+  <div class="bring-down">
+  <!-- Notice -->
+  <p id="notice"><%= notice %></p>
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+  <!-- Page header -->
+  <div class="header-container">
+    <h1 class="smartHead">Smart Contract Challenges</h1>
+  </div>
+
+  <div class="panel panel-widget">
+  <div class="panel-body">
+
+    <table class="table col-sm-6 table-striped">
+
+      <thead class="thead">
+        <tr>
+          <th>TITLE</th>
+          <th>UPLOADED</th>
+          <!--<th>User viewcount</th>-->
+        </tr>
+      </thead>
+
+      <tbody class = "text-left">
+        <% @challenges.each do |challenge| %>
+          <tr>
+            <td><%= link_to challenge.title, challenge_path(challenge) %></td>
+            <td><%= time_ago_in_words(challenge.created_at) %> ago</td>
+          <!--  <td><%= challenge.user_viewcount %></td>-->
+            <%- if current_user %>
+              <%- if (current_user.user_type?) %>
+                <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
+                <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%else%>
+              <%end%>
+            <%end%>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  </div>
 
 <br>
 
 <%- if current_user %>
   <%- if (current_user.user_type?) %> 
-  <button type="button" class="btn btn-primary btn-lg gradient">
-    <%= link_to 'New Challenge', new_challenge_path %>
-  </button>
+
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+    <button type="button" class="btn btn-medium btn-margin">
+      <%= link_to 'New Challenge', new_challenge_path %>
+    </button>
+    </div>
+  </div>
+
   <%end %>
 <%end %>
+</div>
 </div>

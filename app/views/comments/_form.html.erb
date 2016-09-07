@@ -16,20 +16,19 @@
 <%- if current_user %>
     <div class="row">
         <div class="col-sm-5">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-
-              <strong><%= @comment.user.username %></strong> <span class="text-muted pull-right"><%= Time.now.to_formatted_s(:short) %></span>
-            </div>
-              <%= f.text_area :body, placeholder: "Write your comment", :class => "panel-body" %>
-              <%= f.hidden_field :user_id %>
-              <%= f.hidden_field :challenge_id %>
-        </div><!-- /panel panel-default -->
-      </div><!-- /col-sm-5 -->
+                <%= f.text_area :body, placeholder: "Write your comment ...", id: "commentbody" %>
+                <%= f.hidden_field :user_id %>
+                <%= f.hidden_field :challenge_id %>
+         </div><!-- /col-sm-5 -->
     </div><!-- /row -->
 
   <div class="actions">
-    <%= f.submit "Post Comment", :class => "btn btn-primary btn-lg gradient" %>
+    <div class="row">
+      <div class="col-sm-5">
+        <%= f.submit "Post Comment", :class => "btn btn-margin" %>
+      </div>
+    </div>
   </div> 
+
 <% end %>
 <% end %>

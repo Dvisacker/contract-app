@@ -1,17 +1,18 @@
-<% @comments.each do |comment| %>
+<div class="row">
+  <div class="col-sm-5">
+    <div class="panel panel-default">
+      <% @comments.each do |comment| %>
 
-  <div class="row">
-    <div class="col-sm-5">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong><%= comment.user.username %></strong> <span class="text-muted pull-right"><%= comment.created_at.to_formatted_s(:short) %></span>
+        <div class="comment">
+          <div class="comment-header"><strong><span class="text-muted">posted <%= time_ago_in_words(comment.created_at) %> ago</span> by <%= comment.user.username %></strong>
+          </div>
+          <div class="comment-body">
+              <%= comment.body %>
+          </div>
+          <br>
+            <% end %>
         </div>
-        <div class="panel-body">
-          <%= comment.body %>
-      </div><!-- /panel-body -->
-    </div><!-- /panel panel-default -->
-    <div>
     </div>
   </div><!-- /col-sm-5 -->
   </div><!-- /row -->
-<% end %>
+

@@ -1,8 +1,19 @@
+<div class="page-container">
 <div class="bring-down">
-<div class="header-container">
-	<h1>Editing Submission</h1>
-</div>
+<br><br>
+
+<h2 class = "center-text margin-bottom">Edit your code</h2>
+
+
+<div class="panel panel-widget">
+Code submitted <%= time_ago_in_words(@submission.created_at) %> ago
+<div class="panel-body">
 <%= render 'formedit' %>
 
-<%= link_to 'Back', challenge_submissions_path %>
+
+<p class="text-center">
+<%= link_to 'Back', challenge_submissions_path, class: 'black-font' %>
+</p>
+
+</div>
 </div>

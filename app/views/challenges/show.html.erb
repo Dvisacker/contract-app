@@ -1,25 +1,21 @@
-<style>
-.page-padding {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.btn-margin {
-  margin: auto;
-  width: 100%;
-}
-
-</style>
-
-
+<div class="page-container">
 <div class="bring-down page-padding">
 <p id="notice"><%= notice %></p>
 
 <h2>Challenge Statement</h2><br>
-<p class = "well text-justify">
-  <strong><%= @challenge.title %></strong><br><br>
-  <%= @challenge.body %>
-</p>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-widget">
+        <div class="panel-body">
+          <p class = "text-justify">
+            <strong><%= @challenge.title %></strong><br><br>
+            <%= @challenge.body %>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <h2>Challenge Code</h2><br>
 <textarea class = "codemirror-textarea"><%= @challenge.code %></textarea>
@@ -32,17 +28,10 @@
   <%= @challenge.hint2 %>
 <p>
 
-<p>
-  <strong>Challenge Number :</strong>
-  <%= @challenge.id %> |
-  <strong>Time created:</strong>
-  <%= @challenge.created_at %> | 
-    <strong>User viewcount:</strong>
-  <%= @challenge.user_viewcount %>
-</p>
 
 <%- if current_user %>
   <%- if (current_user.user_type?) %>
+
   <div class="row">
     <div class="col-sm-offset-3 col-sm-6">
       <div class="submit-button btn btn-medium btn-margin">
@@ -50,27 +39,42 @@
       </div>
     </div>
   </div>
+
 <% else %>
-    <div class="submit-button btn btn-primary btn-lg button-styling">
-      <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
+
+  <div class="row ">
+    <div class="col-sm-offset-3 col-sm-6">
+      <div class="submit-button btn btn-medium btn-margin">
+        <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
+      </div>
     </div>
+  </div>
+
   <% end %>
 <% end %>
 
 
-<div class="write-comment-container text-left">
+<div class="write-comment-container text-left top-padding">
   <h2>Comment about this challenge :</h2>
   <%= render 'comments/form' %>
 </div>
 
-<div class="comment-container text-left">
-  <h2>Latest comments</h2>
+<div class="comment-container text-left top-padding">
+  <h2 class="bottom-padding">Latest comments</h2>
   <%= render 'comments/commentbox' %>
 </div>
 
-<%= link_to 'Back', root_path %>
+<p>
+  <strong>Challenge Number :</strong>
+  <%= @challenge.id %> |
+  <strong>Time created:</strong>
+  <%= time_ago_in_words (@challenge.created_at) %> ago | 
+    <strong>User viewcount:</strong>
+  <%= @challenge.user_viewcount %>
+</p>
+<%= link_to 'Back', root_path, class: "black-font" %>
 </div>
-
+</div>
 
 
 

@@ -1,9 +1,8 @@
-<%= bootstrap_form_for([@challenge, @submission], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
+<%= bootstrap_form_for([@challenge, @submission]) do |f| %>
 
   <% if @submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
-
       <ul>
       <% @submission.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,13 +11,23 @@
     </div>
   <% end %>
 
-
-
   <div class="field">
-    <%= f.text_area :submission_text, cols: "120", rows: "10" %>
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+        <%= f.text_area :submission_text, cols: "120", rows: "10", :label => '-', class: "codemirror-textarea"%>
+      </div>
+    </div>
   </div>
+
   <div class="actions">
-    <%= f.submit "Submit your solution !", :class => "btn btn-primary btn-lg gradient" %>
+    <div class="form-group margin-top-bottom-lg">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <%= f.submit "Submit your solution !", :class => "btn btn-medium" %>
+        </div>
+      </div>
+    </div>
   </div>
+
 <% end %>
 

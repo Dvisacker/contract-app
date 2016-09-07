@@ -1,59 +1,30 @@
-<div class="bring-down">
-<div class="header-container">
-  <h2 class="center-text header-margin">Register your account</h2>
+<div class="header-container header-margin-small">
+  <h2 class="center-text ">Register your account</h2>
 </div>
 
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
 
+
   <div class="form-group">
-      <%= f.label :email, class: "col-sm-offset-2 col-sm-2 control-label" %>
-      <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
+          <p>Email</p>
           <%= f.email_field :email, class: "form-control" %>
-      </div>
-  </div>
-
-  <br>
-  <br>
-
-    <div class="form-group">
-      <%= f.label :username, class: "col-sm-offset-2 col-sm-2 control-label" %>
-      <div class="col-sm-6">
+          <p>Username</p>
           <%= f.text_field :username, class: "form-control" %>
-      </div>
-  </div>
-
-  <br>
-  <br>
-
-
-  <div class="form-group">
-      <%= f.label :password, class: " col-sm-offset-2 col-sm-2 control-label" %>
-      <div class="col-sm-6">
-        <!--   <% if @minimum_password_length %>
-           <em>(<%= @minimum_password_length %> characters minimum)</em>
-         <% end %><br /> -->
+          <p>Password</p>
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-      </div>
-  </div>
-
-  <br>
-  <br>
-
-  <div class="form-group">
-      <%= f.label :password_confirmation, class: "col-sm-offset-2 col-sm-2 control-label" %>
-      <div class="col-sm-6">
+          <p>Password Confirmation</p>
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
+    </div>
   </div>
 
-  <br>
-  <br>
-
-  <div class="form-group button-margin">
-      <div class="col-sm-offset-3 col-sm-6">
-          <%= f.submit "Register", class: "btn btn-primary btn-lg" %>
+  <div class="form-group margin-top-bottom-lg">
+      <div class="col-sm-offset-4 col-sm-4">
+          <%= f.submit "Register", class: "submit-button btn btn-medium btn-margin" %>
       </div>
   </div>
 
@@ -64,5 +35,3 @@
   </div>
 
 <% end %>
-
-</div>

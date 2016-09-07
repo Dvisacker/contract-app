@@ -17,7 +17,7 @@
 
 
   <div class="form-group">
-  <div class="row">
+    <div class="row">
       <div class="col-sm-offset-4 col-sm-4">
           <%= f.password_field :password, class: "form-control small-margin-top-bottom" %>
       </div>
@@ -28,21 +28,13 @@
 
   <div class="form-group">
       <div class="row">
-      <div class="col-sm-offset-4 col-sm-4">
+        <div class="col-sm-offset-4 col-sm-4">
           <%= f.submit "Log In", class: "btn small-margin-top-bottom" %>
-      </div>
+        </div>
       </div>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="form-group center-text">
-      <div class="row">
-        <div class="col-sm-offset-3 col-sm-6">
-          <%= f.check_box :remember_me, class: "form-control small-margin-top-bottom" %>
-        </div>
-      </div>
-    </div>
-  <% end -%>
+<!-- Check additional code for rememberable feature -->
 
   <div class="form-group center-text">
     <div class="col-sm-offset-3 col-sm-6">
@@ -51,5 +43,7 @@
   </div>
 
 <% end %>
+
+<br><br>
 
 </div>

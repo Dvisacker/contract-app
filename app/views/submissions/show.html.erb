@@ -1,12 +1,20 @@
+<div class="page-container">
 <div class="bring-down">
+<br><br>
 <p id="notice"><%= notice %></p>
-<strong>Code submitted on <%= @submission.created_at.to_formatted_s(:short) %> </strong><br><br>
-<textarea class = "codemirror-textarea"><%= @submission.submission_text %></textarea>
+	<div class="panel panel-widget">
+	Code submitted <%= time_ago_in_words(@submission.created_at) %> ago <br><br>
+		<div class="panel-body">
+			<textarea class = "codemirror-textarea"><%= @submission.submission_text %></textarea>
+		</div>
+	</div>
 
-<p>
+<p class="text-center">
   <strong>Submission Number :</strong>
-  <%= @submission.id %>
+  <%= @submission.id %> <br>
+  <%= link_to 'Back', user_submissions_path(@submission.user), class: "black-font" %>
 </p>
 
-<%= link_to 'Back', challenge_submissions_path(@submission.challenge) %>
+
+</div>
 </div>

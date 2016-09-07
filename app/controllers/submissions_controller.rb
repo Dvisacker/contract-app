@@ -67,7 +67,7 @@ class SubmissionsController < ApplicationController
         format.html { redirect_to @submission.challenge, notice: 'Submission was successfully created.' }
         format.json { render :show, status: :created, location: @submission.challenge }
       else
-        format.html { edirect_to @submission.challenge, notice: 'Please enter a submission' }
+        format.html { redirect_to @submission.challenge, notice: 'Please enter a submission' }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end

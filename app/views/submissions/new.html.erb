@@ -1,14 +1,35 @@
+<div class="page-container">
 <div class="bring-down">
-<div class="header-container">
-	<h1>New Submission</h1>
+	<br><br>
+
+	<div class="row">
+    	<div class="col-sm-offset-1 col-sm-10">
+			<h2>Challenge</h2><br>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-offset-1 col-sm-10">
+			<div class="panel panel-widget">
+				<div class="panel-body">
+					<p class = "well text-justify">
+  						<%= @challenge.body %>
+					</p>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+	<br>
+
+	<div class="row">
+    	<div class="col-sm-offset-1 col-sm-10">
+			<h2>Your Code</h2>
+		</div>
+	</div>
+
+	<%= render 'form' %>
+	<%= link_to 'Back', challenge_submissions_path %>
+
 </div>
-
-<p class = "well text-justify">
-  <strong>Challenge Text:</strong><br><br>
-  <%= @challenge.body %>
-</p>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', challenge_submissions_path %>
 </div>

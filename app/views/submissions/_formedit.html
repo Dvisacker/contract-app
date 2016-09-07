@@ -1,4 +1,4 @@
-<%= bootstrap_form_for([@submission.challenge, @submission], layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
+<%= bootstrap_form_for([@submission.challenge, @submission]) do |f| %>
 
   <% if @submission.errors.any? %>
     <div id="error_explanation">
@@ -16,10 +16,25 @@
 
 
   <div class="field">
-    <%= f.text_area :submission_text, cols: "120", rows: "10", class: "codemirror-textarea" %>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.text_area :submission_text, cols: "120", rows: "10", :label => '-', class: "codemirror-textarea" %>
+        </div>
+      </div>
   </div>
+
+  </div>
+</div>
+
   <div class="actions">
-    <%= f.submit "Submit your solution !", :class => "btn btn-primary btn-lg gradient" %>
+    <div class="form-group margin-top-bottom">
+      <div class="row">
+        <div class="col-sm-offset-3 col-sm-6">
+          <%= f.submit "Submit your solution !", :class => "btn btn-primary btn-medium btn-margin" %>
+        </div>
+      </div>
+    </div>
   </div>
+  
 <% end %>
 

@@ -1,0 +1,11 @@
+Add this to sessions new if you want a remmemberable tickbox
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group center-text">
+      <div class="row">
+        <div class="col-sm-offset-3 col-sm-6">
+          <%= f.check_box :remember_me, class: "form-control small-margin-top-bottom" %>
+        </div>
+      </div>
+    </div>
+  <% end -%>
