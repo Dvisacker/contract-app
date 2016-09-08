@@ -12,22 +12,32 @@
 <table class="table table-striped col-sm-12">
   <thead class="thead">
     <tr>
-      <th>CONTENT</th>
+      <th>CHALLENGE TITLE</th>
       <th>POSTED</th>
+      <th>STATUS</th>
       <th></th>
       <th></th>
-      <th></th>
+      <!-- <th></th> -->
     </tr>
   </thead>
 
   <tbody class = "text-left">
     <% @submissions.each do |submission| %>
       <tr>
-        <td><%= truncate(submission.submission_text, length: 100) %></td>
+        <td><%=submission.challenge.title %></td>
         <td><%= time_ago_in_words(submission.created_at) %> ago</td>
+        <td>
+          <%- if submission.status == 'accepted' %>
+            <p><i id="active-icon" class="fa fa-times" aria-hidden="true"></i>   Accepted</p>
+          <%- elsif submission.status == 'rejected' %>  
+            <p><i id="completed-icon" class="fa fa-check" aria-hidden="true"></i>   Rejected</p>
+          <%- else %>
+            <p><i id="waiting-icon" class="fa fa-spinner" aria-hidden="true"></i>   Processing</p>
+          <%end%>
+        </td>
         <td><%= link_to 'Show', [submission.challenge, submission] %></td>
         <td><%= link_to 'Edit', edit_challenge_submission_path(submission.challenge, submission) %></td>
-        <td><%= link_to 'Delete', [submission.challenge, submission], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Delete', [submission.challenge, submission], method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

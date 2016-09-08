@@ -96,7 +96,7 @@ class SubmissionsController < ApplicationController
     @submission.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@submission.challenge, :notice => 'Submission was successfully deleted') }
+      format.html { redirect_to(challenges_url, :notice => 'Submission was successfully deleted') }
       format.xml  { render :xml => @submission, :status => :created, :location => @submission.challenge }
     end
   end

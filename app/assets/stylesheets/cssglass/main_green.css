@@ -909,10 +909,14 @@ margin-right: 0px;
   padding-right: 20px;
 }
 
-.fa-times {
+#completed-icon {
 	color : red;
 }
 
-.fa-check {
+#active-icon {
+	color : green;
+}
+
+#waiting-icon {
 	color : green;
 }
