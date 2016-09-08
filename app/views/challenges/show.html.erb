@@ -53,11 +53,12 @@
   <% end %>
 <% end %>
 
-
-<div class="write-comment-container text-left top-padding">
-  <h2>Comment about this challenge :</h2>
-  <%= render 'comments/form' %>
-</div>
+<%- if current_user %>
+  <div class="write-comment-container text-left top-padding">
+    <h2>Comment about this challenge :</h2>
+    <%= render 'comments/form' %>
+  </div>
+<% end %>
 
 <div class="comment-container text-left top-padding">
   <h2 class="bottom-padding">Latest comments</h2>
