@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826023532) do
+ActiveRecord::Schema.define(version: 20160908035245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20160826023532) do
     t.string   "hint1"
     t.string   "hint2"
     t.integer  "user_viewcount", default: 0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "completed",      default: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -33,8 +34,9 @@ ActiveRecord::Schema.define(version: 20160826023532) do
     t.integer  "user_id"
     t.integer  "challenge_id"
     t.string   "replies"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "accepted",     default: false
   end
 
   add_index "comments", ["challenge_id"], name: "index_comments_on_challenge_id", using: :btree

@@ -6,7 +6,7 @@
 
   <div class="bring-down">
   <!-- Notice -->
-  <p id="notice"><%= notice %></p>
+  <p id="notice" class="alert alert-dismissible alert-info"><%= notice %></p>
 
 
   <!-- Page header -->
@@ -23,6 +23,7 @@
         <tr>
           <th>TITLE</th>
           <th>UPLOADED</th>
+          <th>STATUS</th>
           <!--<th>User viewcount</th>-->
         </tr>
       </thead>
@@ -32,6 +33,13 @@
           <tr class = "highlight">
             <td><%= link_to challenge.title, challenge_path(challenge) %></td>
             <td><%= time_ago_in_words(challenge.created_at) %> ago</td>
+            <td>
+              <%- if challenge.completed %>
+              <p><i class="fa fa-times" aria-hidden="true"></i>  Completed</p>
+              <%else%>
+              <p><i class="fa fa-check" aria-hidden="true"></i>  Active</p>  
+              <%end%>
+            </td>
           <!--  <td><%= challenge.user_viewcount %></td>-->
             <%- if current_user %>
               <%- if (current_user.user_type?) %>

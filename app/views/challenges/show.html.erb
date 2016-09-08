@@ -1,6 +1,6 @@
 <div class="page-container">
 <div class="bring-down page-padding">
-<p id="notice"><%= notice %></p>
+<p id="notice" class="alert alert-success"><%= notice %></p>
 
 <h2>Challenge Statement</h2><br>
 
@@ -48,7 +48,7 @@
 
   <div class="row ">
     <div class="col-sm-offset-3 col-sm-6">
-      <div class="submit-button btn btn-medium btn-margin">
+      <div class="submit-button btn btn-medium btn-margin margin-top-bottom">
         <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
       </div>
     </div>
