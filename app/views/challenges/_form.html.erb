@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@challenge, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
+<%= form_for(@challenge, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
 
   <% if @challenge.errors.any? %>
     <div id="error_explanation">
@@ -13,22 +13,61 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.text_field :title %>
+    <div class="form-group">
+      <div class="row ">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p><strong>Challenge title</strong></p>
+          <%= f.text_field :title %>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.text_area :body, cols: "30", rows: "10" %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p><strong>Challenge statement</strong></p>
+          <%= f.text_area :body, cols: "30", rows: "10", id: "challenge_text" %>
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="field">
-    <%= f.text_area :code, cols: "30", class: "codemirror-textarea"  %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p><strong>Code</strong></p>
+          <%= f.text_area :code, cols: "30", class: "codemirror-textarea" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :hint1 %>
+
+  
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+        <div class="field">
+          <p><strong>Hint1</strong></p>
+          <%= f.text_field :hint1%>
+        </div>
+        <div class="field">
+          <p><strong>Hint2</strong></p> 
+          <%= f.text_field :hint2 %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :hint2 %>
-  </div>
+
   <div class="actions">
-    <%= f.submit "Create Challenge", :class => "btn btn-primary btn-lg gradient button-styling" %>
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= f.submit "Create Challenge", :class => "btn btn-margin margin-top-bottom" %>
+      </div>
+    </div>
   </div>
+
 <% end %>
