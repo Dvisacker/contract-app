@@ -24,10 +24,11 @@
 	13. Footer
 */
 
+
 /*Lato - main text*/
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url('//fonts.googleapis.com/css?family=Lato:100,300,400,700');
 /*Nunito - logo text*/
-@import url(//fonts.googleapis.com/css?family=Nunito:400,700,300);
+@import url('//fonts.googleapis.com/css?family=Nunito:400,700,300');
 
 /*Default Styles*/
 *::-webkit-input-placeholder {
