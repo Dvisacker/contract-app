@@ -51,6 +51,7 @@
 	background-color: #6fc754;
 	color: #fff;
 }
+
 body {
 	min-width: 320px;
 	position: relative;
@@ -59,7 +60,10 @@ body {
 	font-weight: 300;
 	overflow-x: hidden;
 	color: #273140;
+	height: 100%;
 }
+
+
 .hidden {
 	display: none;
 }
@@ -794,7 +798,7 @@ table td{
 table tr:first-child:hover{
 	background: white;
 }*/
-table tr:hover {
+table tbody tr:hover {
   background: #E5EFFF;
   cursor: pointer;
 }

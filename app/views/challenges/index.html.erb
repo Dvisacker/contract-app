@@ -29,7 +29,7 @@
 
       <tbody class = "text-left">
         <% @challenges.each do |challenge| %>
-          <tr>
+          <tr class = "highlight">
             <td><%= link_to challenge.title, challenge_path(challenge) %></td>
             <td><%= time_ago_in_words(challenge.created_at) %> ago</td>
           <!--  <td><%= challenge.user_viewcount %></td>-->

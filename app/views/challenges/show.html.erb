@@ -20,13 +20,17 @@
 <h2>Challenge Code</h2><br>
 <textarea class = "codemirror-textarea"><%= @challenge.code %></textarea>
 
-<p class = "well text-justify">
-  <strong>Hint1:</strong>
-  <%= @challenge.hint1 %>
-  <br>
-  <strong>Hint2:</strong>
-  <%= @challenge.hint2 %>
-<p>
+
+ <% if @challenge.hint1 != "" || @challenge.hint2 != "" %>
+    <p class = "well text-justify">
+      <strong>Hint1:</strong>
+      <%= @challenge.hint1 %>
+      <br>
+      <strong>Hint2:</strong>
+      <%= @challenge.hint2 %>
+    <p>
+  <% else %>
+  <% end %>
 
 
 <%- if current_user %>
