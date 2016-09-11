@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcom#index'
@@ -11,6 +9,10 @@ Rails.application.routes.draw do
     resources :submissions
   end
   resources :users
+
+  resources :conversations do
+    resources :messages
+  end
 
   resource :user, only: [:edit] do
   collection do

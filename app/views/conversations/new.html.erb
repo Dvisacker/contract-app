@@ -1,0 +1,20 @@
+<div class = "bring-down page-container">
+<h1>New conversation</h1>
+
+<%= form_tag conversations_path, method: :post do %>
+	<div>
+		<%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :username) %>
+	</div>
+
+	<div>
+		<%= text_field_tag :subject, nil, placeholder: "Subject" %>
+	</div>
+
+	<div>
+		<%= text_area_tag :body, nil, placeholder: "Message" %>
+	</div>
+
+	<%= submit_tag %>
+	<% end %>
+
+</div>
