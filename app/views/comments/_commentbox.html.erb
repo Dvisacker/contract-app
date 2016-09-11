@@ -4,7 +4,7 @@
       <% @comments.each do |comment| %>
 
         <div class="comment">
-          <div class="comment-header"><strong><span class="text-muted">posted <%= time_ago_in_words(comment.created_at) %> ago</span> by <%= comment.user.username %></strong>
+          <div class="comment-header"><strong><span class="text-muted">posted <%= time_ago_in_words(comment.created_at) %> ago</span> by <%= link_to comment.user.username, user_path(comment.user), class: 'black-font' %></strong>
           </div>
           <div class="comment-body">
               <%= comment.body %>

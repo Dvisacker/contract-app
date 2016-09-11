@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcom#index'
@@ -9,8 +10,17 @@ Rails.application.routes.draw do
     resources :comments
     resources :submissions
   end
+  resources :users
+
+  resource :user, only: [:edit] do
+  collection do
+    patch 'update_password'
+  end
+end
 
   get 'user/:user_id/submissions' => 'submissions#index_user', :as => :user_submissions
+
+  # get 'user/:id' => 'users#show', :as => :user_show
 
   
   # The priority is based upon order of creation: first created -> highest priority.

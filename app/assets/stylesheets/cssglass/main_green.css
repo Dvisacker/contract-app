@@ -164,6 +164,7 @@ form textarea {
 	border-radius: 5px;
 	color: #555;
 	font-weight: 400;
+	resize: none;
 }
 form input:focus,
 form textarea:focus {
@@ -724,8 +725,6 @@ footer .socials li a {
 
 
 /* David Code */
-
-
 .bring-down {
 	margin-top: 80px;
 }
@@ -819,10 +818,7 @@ tr a{
   text-decoration: underline;
 }
 
-.panel-widget {
-    overflow: hidden;
-    border: none;
-}
+
 
 .panel {
     box-shadow: none;
@@ -935,4 +931,40 @@ margin-right: 0px;
     border-radius: 5px;
     color: #555;
     font-weight: 400;
+}
+
+.mini-panel {
+	height: 120px;
+	margin: 1px;
+	padding: 1px;
+	border: none;
+	font-size: 0.8em;
+	padding: 0px;
+}
+
+#self-intro {
+	width: 100%;
+}
+
+.panel {
+    box-shadow: none;
+    border: 1px solid #C5C5C5;
+    background: #fff;
+    padding: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 4px;
+}
+
+.panel-body, .panel-heading {
+    padding: 0px;
+    color: inherit;
+    background-color: transparent;
+    border-color: none;
+}
+
+.panel-widget {
+    overflow: hidden;
+    border: none;
 }

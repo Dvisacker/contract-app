@@ -1,0 +1,26 @@
+<%= form_for(@user, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |f| %>
+
+<!--Contact Form -->
+<div id="contactdiv">
+	<br/>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-offset-2 col-sm-8">
+          	<%= f.text_area :intro, rows: "10", id: "challenge_text" %>
+			</div>
+		</div>
+	</div>
+
+   <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+      	 <div class="actions">
+        	<%= f.submit "Post your introduction", :class => "btn btn-margin margin-top-bottom" %>
+      	</div>
+  	  </div>
+  </div>
+
+</div>
+
+<%end%>
+

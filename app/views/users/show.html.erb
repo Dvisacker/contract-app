@@ -1,0 +1,61 @@
+<div class="page-container">
+	<div class="bring-down page-padding">
+		<h1 class = "text-center margin-top-bottom"><strong><%= @user.username %></strong></h1>
+		
+
+		<div class="row">
+		<div class="col-sm-offset-3 col-sm-6">
+		<div class="panel panel-widget">
+        	<div class="panel-body">		
+				<p><strong>Introduce yourself</strong></p>
+				<text name="self-introduction" id="self-intro" rows="10">
+				<%- if @user.intro.length == 0 %> 
+				<p>Hello, I didn't fill in my self-introduction yet</p>
+				<%else%>
+				<p><%= @user.intro %></p>
+				<%end%>
+				</text>
+				<p><strong>Email</strong></p>
+				<p><%= @user.email %></p>
+				<div>
+				<br>
+				<%= link_to "View Submissions", user_submissions_path(@user), class: 'black-font' %>
+				<br>
+
+				</div>
+			</div>
+		</div>
+		</div> 
+		</div>
+
+		<div class="row">
+			<div class="col-sm-offset-3 col-sm-2">
+				<div class="panel panel-widget mini-panel">
+					<div class="panel-body">
+					Number of comments : 
+					<p><%= @user.number_of_comments %></p>
+					</div>
+				</div>	
+			</div>
+
+			<div class="col-sm-2">
+				<div class="panel panel-widget mini-panel">
+					<div class="panel-body">
+					Number of submissions :
+					<p><%= @user.number_of_submissions %></p>
+					</div>
+				</div>
+			</div>
+		
+		<div class="col-sm-2">
+			<div class="panel panel-widget mini-panel">
+				<div class="panel-body">
+				<p>Glass_confiscated :</p>
+				<p><%= @user.glass_confiscated %></p>
+				</div>
+			</div>
+		</div>
+
+		</div>
+</div>
+
