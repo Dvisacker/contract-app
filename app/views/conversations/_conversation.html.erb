@@ -1,0 +1,8 @@
+<b><%= conversation.originator.username %></b> <br>
+<h4>
+	<small><b>Subject:</b> <%= conversation.subject %></small><br>
+	<small><b>Date: </b><%= conversation.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
+</h4>
+<%= truncate conversation.messages.last.body, length: 145 %> <br>
+<%= link_to "View", conversation_path(conversation), class: "black-font" %>
+<hr>

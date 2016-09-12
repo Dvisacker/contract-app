@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcom#index'
@@ -12,6 +13,11 @@ Rails.application.routes.draw do
 
   resources :conversations do
     resources :messages
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
   end
 
   resource :user, only: [:edit] do
@@ -20,7 +26,11 @@ Rails.application.routes.draw do
   end
 end
 
+  get 'mailbox/inbox' => 'mailbox#inbox', :as => :mailbox_inbox
+  get 'mailbox/sent' => 'mailbox#sent', :as => :mailbox_sent
+  get 'mailbox/trash' => 'mailbox#trash', :as => :mailbox_trash
   get 'user/:user_id/submissions' => 'submissions#index_user', :as => :user_submissions
+ 
 
   # get 'user/:id' => 'users#show', :as => :user_show
 

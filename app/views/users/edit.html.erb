@@ -133,24 +133,17 @@ position: absolute;
         	<div class="panel-body">		
 			<p><strong>Introduce yourself</strong><i class="fa fa-pencil" id = "onclick" aria-hidden="true"></i></p>
 			<p><%= @user.intro %></p>
+			<hr>
 				
 
 
-				<p><strong> Your E-Mail </strong><i class="fa fa-pencil" id = "onclick" aria-hidden="true"></i></p>
-				<p><%= @user.email %></p>
-				<p><strong> Your country </strong><i class="fa fa-pencil" id = "onclick" aria-hidden="true"></i></p>
+				<p><strong>E-Mail: </strong><%= @user.email %></p>
+				<p><strong>Country: </strong><i class="fa fa-pencil" id = "onclick" aria-hidden="true"></i></p>
 				<p><%= @user.country %></p>
 				<p><strong> Wallet Adress </strong><i class="fa fa-pencil" id = "onclick" aria-hidden="true"></i></p>
 				<p><%= @user.adress %></p>
 				
-				<div>
-					<%= link_to "Submissions", user_submissions_path(current_user), class: 'black-font' %>
-					<i class="fa fa-pencil" id = "onclick" aria-hidden="true"></i>
-					<br><br>
-					<%= link_to "Change your password", edit_user_registration_path(current_user), class: 'black-font' %>
-					<i class="fa fa-pencil" id = "onclick" aria-hidden="true"></i>
-					<br><br>
-				</div>
+			<hr>
 				
 				<div class="panels-container">
 
@@ -158,7 +151,7 @@ position: absolute;
 					<div class="col-sm-4 center-div">
 						<div class="panel-widget mini-panel text-center">
 							<div class="panel-body">
-								<i class="fa fa-comments fa-2x" aria-hidden="true" id="statsicon"></i><br />
+								<i class="fa fa-comments fa-2x" aria-hidden="true"></i><br />
 								<span class="number-big"><%= current_user.number_of_comments %></span><br />
 								<b>COMMENTS</b>
 							</div>
@@ -168,7 +161,7 @@ position: absolute;
 					<div class="col-sm-4 center-div">
 						<div class="panel-widget mini-panel text-center">
 							<div class="panel-body">
-							<i class="fa fa-file-code-o fa-2x" aria-hidden="true" id="statsicon"></i><br />
+							<i class="fa fa-file-code-o fa-2x" aria-hidden="true"></i><br />
 							<span class="number-big"><%= current_user.number_of_submissions %></span><br />
 							<b>SUBMISSIONS</b>
 							
@@ -188,6 +181,20 @@ position: absolute;
 					</div>
 
 					</div>
+
+				<hr>
+
+					    <div class="row">
+      						<div class="col-sm-12">
+        					<%= link_to "View your submissions", user_submissions_path(current_user), :class => "btn btn-margin" %>
+      						</div>
+      					</div>
+						<div class="row">
+      						<div class="col-sm-12">
+        					<%= link_to "Change account information", edit_user_registration_path(current_user), :class => "btn btn-margin margin-top-bottom-sm" %>
+      						</div>
+    					</div>
+    					</div>
 				</div>
 			</div>
 		</div>

@@ -22,8 +22,15 @@ class User < ActiveRecord::Base
     end
   end
 
+def mailboxer_name
+  self.name
+end
+
 def mailboxer_email(object)
+  self.email
  #return the model's email here
 end
+
+
 
 end

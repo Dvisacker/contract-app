@@ -1,0 +1,6 @@
+<% stylesheet_link_tag "bootstrap/css/bootstrap.min.css" %>
+
+<div class="bring-down page-container">
+	<%= render partial: 'mailbox/folder_view', locals: {is_conversation: false, messages: @inbox} %>
+</div>
+

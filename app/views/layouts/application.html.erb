@@ -91,6 +91,7 @@
                             <%- if current_user %>
                                 <li><%= link_to "Your submissions", user_submissions_path(current_user) %></li>
                                 <li><%= link_to "Your profile", edit_user_path(current_user) %></li>
+                                <li><%= link_to " Inbox", mailbox_inbox_path %></li>
                                 <!-- if the user is an admin, we allow to post new challenges and to view the submissions -->
                                 <%- if (current_user.user_type?) %> 
                                     <li><%= link_to "Post a new challenge", new_challenge_path %></li>
