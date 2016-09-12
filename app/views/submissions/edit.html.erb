@@ -5,8 +5,8 @@
 <h2 class = "center-text margin-bottom">Edit your code</h2>
 
 
-<div class="panel panel-widget">
-Code submitted <%= time_ago_in_words(@submission.created_at) %> ago
+<div class="panel">
+<b>Code submitted <%= time_ago_in_words(@submission.created_at) %> ago</b>
 <div class="panel-body">
 <%= render 'formedit' %>
 

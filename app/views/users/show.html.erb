@@ -1,3 +1,111 @@
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Fauna+One|Muli);
+
+#onclick{
+cursor:pointer;
+color:green;
+border-radius:3px;
+}
+
+#popup{
+padding-top:80px;
+padding: auto;
+margin: auto;
+}
+
+textarea{
+border-radius:3px;
+padding: 10px;
+resize: none;
+}
+
+#text-intro-input{
+opacity:0.92;
+height: 40%;
+/*background: #C6C6C6;*/
+display: none;
+border-radius: 4px;
+}
+
+#max-height {
+	height:100%;
+}
+
+.row.is-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.is-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand. 
+* Use a preprocesser with autoprefixing.
+*/
+.row.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+/*
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;*/
+
+}
+
+.row.is-flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+/*	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;*/
+}
+
+.col-no-padding {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.center-div {
+	height: 120px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.panel-container {
+	height: 100px;
+}
+
+.number-big {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+
+
+</style>
 <div class="page-container">
 	<div class="bring-down page-padding">
 		<h1 class = "text-center margin-top-bottom"><strong><%= @user.username %></strong></h1>
@@ -5,57 +113,67 @@
 
 		<div class="row">
 		<div class="col-sm-offset-3 col-sm-6">
-		<div class="panel panel-widget">
-        	<div class="panel-body">		
-				<p><strong>Introduce yourself</strong></p>
-				<text name="self-introduction" id="self-intro" rows="10">
-				<%- if @user.intro.length == 0 %> 
-				<p>Hello, I didn't fill in my self-introduction yet</p>
-				<%else%>
-				<p><%= @user.intro %></p>
-				<%end%>
-				</text>
-				<p><strong>Email</strong></p>
-				<p><%= @user.email %></p>
-				<div>
-				<br>
-				<%= link_to "View Submissions", user_submissions_path(@user), class: 'black-font' %>
-				<br>
+		<div class="panel">
 
-				</div>
+        	<div class="panel-body">		
+				<p><strong>About <%= @user.username %></strong></p>
+				<text name="self-introduction" id="self-intro" rows="10">
+					<%- if @user.intro.length == 0 %> 
+						<p>Hello, I didn't fill in my self-introduction yet</p>
+					<%else%>
+						<p><%= @user.intro %></p>
+					<%end%>
+				</text>
+				<hr>
+				<p><strong>E-Mail: </strong><%= @user.email %></p>
+				<hr>
 			</div>
+
+
+				<div class="panel-container">
+				<div class="row is-flex">
+					<div class="col-sm-4 center-div">
+						<div class="panel-widget mini-panel text-center">
+							<div class="panel-body">
+								<i class="fa fa-comments fa-2x" aria-hidden="true"></i><br />
+								<span class="number-big"><%= current_user.number_of_comments %></span><br />
+								<b>COMMENTS</b>
+							</div>
+						</div>	
+					</div>
+
+					<div class="col-sm-4 center-div">
+						<div class="panel-widget mini-panel text-center">
+							<div class="panel-body">
+								<i class="fa fa-file-code-o fa-2x" aria-hidden="true"></i><br />
+								<span class="number-big"><%= current_user.number_of_submissions %></span><br />
+								<b>SUBMISSIONS</b>
+							</div>
+						</div>
+					</div>
+		
+					<div class="col-sm-4 center-div">
+						<div class="panel-widget mini-panel text-center">
+							<div class="panel-body">
+									<i class="fa fa-key fa-2x" aria-hidden="true"></i><br />
+									<span class="number-big"><%= current_user.glass_confiscated %></span><br />
+									<b>GLASS CONFISCATED</b>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<%= link_to "Send message", new_conversation_path, class: "btn btn-margin" %>
+					</div>
+				</div>
 		</div>
 		</div> 
 		</div>
 
-		<div class="row">
-			<div class="col-sm-offset-3 col-sm-2">
-				<div class="panel panel-widget mini-panel">
-					<div class="panel-body">
-					Number of comments : 
-					<p><%= @user.number_of_comments %></p>
-					</div>
-				</div>	
-			</div>
 
-			<div class="col-sm-2">
-				<div class="panel panel-widget mini-panel">
-					<div class="panel-body">
-					Number of submissions :
-					<p><%= @user.number_of_submissions %></p>
-					</div>
-				</div>
-			</div>
-		
-		<div class="col-sm-2">
-			<div class="panel panel-widget mini-panel">
-				<div class="panel-body">
-				<p>Glass_confiscated :</p>
-				<p><%= @user.glass_confiscated %></p>
-				</div>
-			</div>
-		</div>
-
-		</div>
 </div>
 

@@ -24,15 +24,15 @@
   <tbody class = "text-left">
     <% @submissions.each do |submission| %>
       <tr>
-        <td><%=submission.challenge.title %></td>
+        <td><b><%=submission.challenge.title %></b></td>
         <td><%= time_ago_in_words(submission.created_at) %> ago</td>
         <td>
           <%- if submission.status == 'accepted' %>
-            <p><i id="active-icon" class="fa fa-times" aria-hidden="true"></i>   Accepted</p>
+            <b><i id="active-icon" class="fa fa-times" aria-hidden="true"></i>   Accepted</b>
           <%- elsif submission.status == 'rejected' %>  
-            <p><i id="completed-icon" class="fa fa-check" aria-hidden="true"></i>   Rejected</p>
+            <b><i id="completed-icon" class="fa fa-check" aria-hidden="true"></i>   Rejected</b>
           <%- else %>
-            <p><i id="waiting-icon" class="fa fa-spinner" aria-hidden="true"></i>   Processing</p>
+            <b><i id="waiting-icon" class="fa fa-spinner" aria-hidden="true"></i>   Processing</b>
           <%end%>
         </td>
         <td><%= link_to 'Show', [submission.challenge, submission] %></td>

@@ -27,7 +27,15 @@
  <hr>
 
 <h2>Challenge Code</h2><br>
-<textarea class = "codemirror-textarea"><%= @challenge.code %></textarea>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel-bordered">
+        <div class="panel-body">
+          <textarea class = "codemirror-textarea"><%= @challenge.code %></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
  <% if @challenge.hint1 != "" || @challenge.hint2 != "" %>
@@ -69,13 +77,14 @@
 <%- if current_user %>
   <div class="write-comment-container text-left top-padding">
     <h2>Comment about this challenge :</h2>
+    <br>
+
     <%= render 'comments/form' %>
+    <%= render 'comments/commentbox' %>
+    
   </div>
 <% end %>
-
-<div class="comment-container text-left top-padding">
-  <h2 class="bottom-padding">Latest comments</h2>
-  <%= render 'comments/commentbox' %>
+  
 </div>
 
 
@@ -94,6 +103,21 @@
 <%= link_to 'Back', root_path, class: "black-font" %>
 </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#comment-button').hide();
+
+        $('#commentbody').focus(function() {
+        $('#comment-button').show();
+        });
+        $('#commentbody').focusout(function() {
+        $('#comment-button').hide();
+        });
+        });
+
+
+</script>
 
 
 
