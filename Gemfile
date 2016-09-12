@@ -29,6 +29,7 @@ gem 'bootstrap_form'
 gem 'rails_admin'
 gem 'puma'
 gem 'mailboxer', github: 'mailboxer/mailboxer'
+gem 'chosen-rails'
 
 
 # Use ActiveModel has_secure_password

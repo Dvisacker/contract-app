@@ -1,7 +1,8 @@
 <%= form_for :conversation, url: :conversations, html: {class: ""} do |f| %>
+
 	<div class="form-group">
 		<%= f.label :recipients %>
-		<%= f.select(:recipients, User.all.collect { |p| [p.username, p.id]}, {}, {multiple: true, class: 'form-control'}) %>
+		<%= f.select(:recipients, User.all.collect { |p| [p.username, p.id]}, {}, {multiple: true, class: 'chosen-select form-control'}) %>
 	</div>
 	<div class="form-group">
 		<%= f.label :subject %>
@@ -9,8 +10,8 @@
 	</div>
 	<div class="form-group">
 		<%= f.label :message %>
-		<%= f.text_field :body, placeholder: "Type your message here", class: "form-control", rows: 4 %>
+		<%= f.text_area :body, placeholder: "Type your message here", class: "form-control", rows: 6 %>
 	</div>
 
-	<%= f.submit "Send Message", class: "btn btn-sucess" %>
+	<%= f.submit "Send Message", class: "btn btn-sucess btn-margin" %>
 <% end %>

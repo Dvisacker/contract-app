@@ -14,8 +14,10 @@
 
 
 //= require jquery/jquery-3.1.0.min
+//= require chosen-jquery
 //= require bootstrap
 //= require bootstrap.min
+//= require conversations
 
 //= require codemirror
 //= require codemirror/lib/codemirror

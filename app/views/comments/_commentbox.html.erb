@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="col-sm-5">
+  <div class="col-sm-6">
     <div class="panel panel-default">
       <% @comments.each do |comment| %>
 
         <div class="comment">
-          <div class="comment-header"><strong><span class="text-muted">posted <%= time_ago_in_words(comment.created_at) %> ago</span> by <%= link_to comment.user.username, user_path(comment.user), class: 'black-font' %></strong>
+          <div class="comment-header"><strong><%= link_to comment.user.username, user_path(comment.user), class: 'black-font' %></strong><span class="text-muted pull-right">posted <%= time_ago_in_words(comment.created_at) %> ago</span>
           </div>
-          <div class="comment-body">
+          <div class="comment-body panel-footer">
               <%= comment.body %>
           </div>
           <br>

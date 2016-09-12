@@ -1,15 +1,14 @@
 <% @receipts.each do |receipt| %>
 	<% message = receipt.message %>
-	<div class="container">
-	
+	<div class="row">
+	<div class="col-sm-12">
 		<b><%= message.sender.username %></b>
 		<h4>
 		<small><b>Date: </b><%= message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
 		</h4>
-		<%= message.body %>
-		<hr>
-		
+		<p><%= message.body %></p>
 	</div>	
+	</div>
 
 
 

@@ -1,4 +1,4 @@
-
+ 
 /*
 	@Author: Vitaliy Grinevich (vivalaz)
 	@URL: 
@@ -820,7 +820,7 @@ tr a{
 
 
 
-.panel {
+.panel-bordered {
     box-shadow: none;
     border: 1px solid #C5C5C5;
     background: #fff;
@@ -973,3 +973,8 @@ margin-right: 0px;
     overflow: hidden;
     border: none;
 }
+
+.font-bigger
+  {
+    font-size: 16px
+  }

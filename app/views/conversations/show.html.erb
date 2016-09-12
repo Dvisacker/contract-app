@@ -10,9 +10,13 @@
   <%= link_to "Compose new message", new_conversation_path, class: "btn btn-success btn-margin" %>
   <br>
   <% if conversation.is_trashed?(current_user) %>
-    <%= link_to "Untrash", untrash_conversation_path, class: "btn btn-success btn-margin margin-top-bottom-sm", method: :post %>
+    <%= link_to "Untrash", untrash_conversation_path(conversation), class: "btn btn-success btn-margin margin-top-bottom-sm",  :method => :post %>
   <% else %>
-    <%= link_to "Move to thrash", trash_conversation_path, class: "btn btn-success btn-margin margin-top-bottom-sm", method: :post, data: {confirm: 'Are you sure ?'} %>
+  <%= form_for :conversation, url: trash_conversation_path(conversation) do |f| %>
+    <div class="form-group">
+          <%= f.submit "Move to thrash", class: "btn btn-margin margin-top-bottom-sm" %>
+    </div>
+  <% end %>
   <% end %>
 
 </div>

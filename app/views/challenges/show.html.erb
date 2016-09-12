@@ -1,14 +1,21 @@
+<style>
+  
+  .font-bigger
+  {
+    font-size: 16px
+  }
+</style>
+
 <div class="page-container">
 <div class="bring-down page-padding">
-<p id="notice" class="alert alert-success"><%= notice %></p>
 
 <h2>Challenge Statement</h2><br>
 
   <div class="row">
     <div class="col-sm-12">
-      <div class="panel panel-widget">
+      <div class="panel-bordered">
         <div class="panel-body">
-          <p class = "text-justify">
+          <p class = "text-justify font-bigger">
             <strong><%= @challenge.title %></strong><br><br>
             <%= @challenge.body %>
           </p>
@@ -16,6 +23,8 @@
         </div>
       </div>
     </div>
+
+ <hr>
 
 <h2>Challenge Code</h2><br>
 <textarea class = "codemirror-textarea"><%= @challenge.code %></textarea>
@@ -48,7 +57,7 @@
 
   <div class="row ">
     <div class="col-sm-offset-3 col-sm-6">
-      <div class="submit-button btn btn-medium btn-margin margin-top-bottom">
+      <div class="btn btn-medium btn-margin margin-top-bottom">
         <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
       </div>
     </div>
@@ -69,6 +78,9 @@
   <%= render 'comments/commentbox' %>
 </div>
 
+
+<div class="row ">
+<div class="col-sm-12">
 <p>
   <strong>Challenge Number :</strong>
   <%= @challenge.id %> |
@@ -77,6 +89,8 @@
     <strong>User viewcount:</strong>
   <%= @challenge.user_viewcount %>
 </p>
+</div>
+</div>
 <%= link_to 'Back', root_path, class: "black-font" %>
 </div>
 </div>
