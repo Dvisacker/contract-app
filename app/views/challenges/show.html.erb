@@ -1,5 +1,4 @@
 <style>
-  
   .font-bigger
   {
     font-size: 16px
@@ -7,7 +6,7 @@
 </style>
 
 <div class="page-container">
-<div class="bring-down page-padding">
+  <div class="bring-down page-padding">
 
 <h2>Challenge Statement</h2><br>
 
@@ -82,41 +81,37 @@
     <%= render 'comments/form' %>
     <%= render 'comments/commentbox' %>
     
-  </div>
 <% end %>
   
-</div>
+<!-- </div> -->
 
 
 <div class="row ">
-<div class="col-sm-12">
-<p>
-  <strong>Challenge Number :</strong>
-  <%= @challenge.id %> |
-  <strong>Time created:</strong>
-  <%= time_ago_in_words (@challenge.created_at) %> ago | 
-    <strong>User viewcount:</strong>
-  <%= @challenge.user_viewcount %>
-</p>
-</div>
+  <div class="col-sm-12">
+    <p>
+      <strong>Challenge Number :</strong>
+      <%= @challenge.id %> |
+      <strong>Time created:</strong>
+      <%= time_ago_in_words (@challenge.created_at) %> ago | 
+      <strong>User viewcount:</strong>
+      <%= @challenge.user_viewcount %>
+    </p>
+  </div>
 </div>
 <%= link_to 'Back', root_path, class: "black-font" %>
 </div>
-</div>
 
 <script>
-    $(document).ready(function() {
-        $('#comment-button').hide();
+    // $(document).ready(function() {
+    //     $('#comment-button').hide();
 
-        $('#commentbody').focus(function() {
-        $('#comment-button').show();
-        });
-        $('#commentbody').focusout(function() {
-        $('#comment-button').hide();
-        });
-        });
-
-
+    //     $('#commentbody').focus(function() {
+    //     $('#comment-button').show();
+    //     });
+    //     $('#commentbody').focusout(function() {
+    //     $('#comment-button').hide();
+    //     });
+    //     });
 </script>
 
 
