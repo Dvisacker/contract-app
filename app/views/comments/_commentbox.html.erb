@@ -2,20 +2,19 @@
   <div class="col-sm-6">
     <div class="panel panel-default">
 
-<%= form_for [@challenge,@comment] do |f| %>
+  <%= form_for [@challenge,@comment] do |f| %>
 
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <br>
-      <ul>
-      <% @comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-      <br>
-    </div>
-  <% end %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2><br>
+        <ul>
+          <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+        <br>
+      </div>
+    <% end %>
 
 
     <div class="row">
@@ -37,7 +36,7 @@
 <% end %>
 
 
-      <% @comments.each do |comment| %>
+<% @comments.each do |comment| %>
 
         <div class="comment">
           <div class="comment-header"><strong><%= link_to comment.user.username, user_path(comment.user), class: 'black-font' %></strong><span class="text-muted pull-right ">posted <%= time_ago_in_words(comment.created_at) %> ago</span>

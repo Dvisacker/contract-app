@@ -35,7 +35,7 @@
         }
 
         .huge-margin { 
-         margin-top: 300px;
+         margin-top: 2000px;
         }
     </style>
 
@@ -60,79 +60,79 @@
 <body>
     <!-- Begin wrapper -->
     <div id="container">
-
     <!-- Begin Fixed Navigation -->
-    <header id="main-nav" class="main-navigation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                    <div id="navigation" class="toggle-btn-mnu open">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                </div>
-
-                <!-- Begin Slide Menu -->
-                <div id="slide_out_menu">   
-                    <div class="menu-close"><i class="fa fa-times"></i></div>
-                    <ul class="socials text-center">
-                        <li><a href="http://twitter.com/theglasshunt" target="_blank"><i class="fa fa-twitter" ></i></a></li>
-                        <li><a href="https://www.facebook.com/glasshunt/" target="_blank"><i class="fa fa-facebook" ></i></a></li>
-                        <li><a href="http://glasshunt.tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a></li>
-                    </ul>
-
-                    <div class="slide-logo text-center">
-                        <a href="http://glasshunt.co"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
+        <header id="main-nav" class="main-navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <div id="navigation" class="toggle-btn-mnu open">
+                            <i class="fa fa-bars"></i>
+                        </div>
                     </div>
 
-                    <nav class="main-mnu">
-                        <ul>
-                            <li><%= link_to "About", "http://glasshunt.co" %></li>
-                            <li><%= link_to "Challenges", challenges_path %></li>
-                            <%- if current_user %>
-                                <li><%= link_to "Your submissions", user_submissions_path(current_user) %></li>
-                                <li><%= link_to "Your profile", edit_user_path(current_user) %></li>
-                                <li><%= link_to " Inbox", mailbox_inbox_path %></li>
-                                <!-- if the user is an admin, we allow to post new challenges and to view the submissions -->
-                                <%- if (current_user.user_type?) %> 
-                                    <li><%= link_to "Post a new challenge", new_challenge_path %></li>
-                                    <li><%= link_to "Admin Panel", rails_admin_path %></li>
+                    <!-- Begin Slide Menu -->
+                    <div id="slide_out_menu">   
+                        <div class="menu-close"><i class="fa fa-times"></i></div>
+                            <ul class="socials text-center">
+                                <li><a href="http://twitter.com/theglasshunt" target="_blank"><i class="fa fa-twitter" ></i></a></li>
+                                <li><a href="https://www.facebook.com/glasshunt/" target="_blank"><i class="fa fa-facebook" ></i></a></li>
+                                <li><a href="http://glasshunt.tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                            </ul>
+
+                        <div class="slide-logo text-center">
+                            <a href="http://glasshunt.co"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
+                        </div>
+
+                        <nav class="main-mnu">
+                            <ul>
+                                <li><%= link_to "About", "http://glasshunt.co" %></li>
+                                <li><%= link_to "Challenges", challenges_path %></li>
+                                <%- if current_user %>
+                                    <li><%= link_to "Your submissions", user_submissions_path(current_user) %></li>
+                                    <li><%= link_to "Your profile", edit_user_path(current_user) %></li>
+                                    <li><%= link_to " Inbox", mailbox_inbox_path %></li>
+                                    <!-- if the user is an admin, we allow to post new challenges and to view the submissions -->
+                                    <%- if (current_user.user_type?) %> 
+                                        <li><%= link_to "Post a new challenge", new_challenge_path %></li>
+                                        <li><%= link_to "Admin Panel", rails_admin_path %></li>
+                                    <% else %>
+                                    <% end %>
+                                    <li><%= link_to "Log out", destroy_user_session_path, :method => :get %></li>
+
                                 <% else %>
+                                    <li><%= link_to "Sign In", new_user_session_path %></li>
+                                    <li><%= link_to "Sign Up", new_user_registration_path %></li>
                                 <% end %>
-                                <li><%= link_to "Log out", destroy_user_session_path, :method => :get %></li>
+                            </ul>
+                        </nav>  
+                    </div>
+                    <!-- End Slide Menu -->
 
-                            <% else %>
-                                <li><%= link_to "Sign In", new_user_session_path %></li>
-                                <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                            <% end %>
-                        </ul>
-                    </nav>  
-                </div>
-                <!-- End Slide Menu -->
+                    <div class="col-lg-7 col-md-7 col-sm-11 col-xs-10">
+                        <h1 class="logo caps text-left">
 
-                <div class="col-lg-7 col-md-7 col-sm-11 col-xs-10">
-                    <h1 class="logo caps text-left">
-
-                     <a href="http://glasshunt.co"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
-                    </h1>
-                </div>
-                <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
-                    <p class="slogan text-right">The token and dev playground, rewarding hackers to find exploits in blockchains.</p>
+                         <a href="http://glasshunt.co"><%=image_tag("logo_small.png", alt: "Example Image", style: "height:40px; margin-right:10px")%>Glass Hunt</a>
+                        </h1>
+                    </div>
+                    <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
+                        <p class="slogan text-right">The token and dev playground, rewarding hackers to find exploits in blockchains.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-       </nav>
-    </header>
+           <!-- </nav> not sure if this nav is needed / probably has to be deleted-->
+        </header>
     <!-- End Fixed Navigation -->
 
     
 
     <!-- Page Content -->
-    <div id="body">
+    <div id="body" >
         <%= yield %>
     </div>
     <!-- End Page Content -->
 
+    </div>
     <!-- Begin footer -->
     <footer class="grey-bg text-center huge-margin">
         <div class="container">
@@ -154,7 +154,7 @@
     </footer>
     <!-- End footer -->
 
-    </div>
+    
     <!-- End wrapper -->
 </body>
 
