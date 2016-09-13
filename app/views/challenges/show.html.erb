@@ -45,10 +45,10 @@
         <div class="panel-footer"> 
          <% if @challenge.hint1 != "" || @challenge.hint2 != "" %>
             <p class = "text-justify">
-              <strong>Hint1:</strong>
+              <strong>Hint 1:</strong>
               <%= @challenge.hint1 %>
               <br>
-              <strong>Hint2:</strong>
+              <strong>Hint 2:</strong>
               <%- if current_user %>
                 <%= @challenge.hint2 %>
                 <% else %>
@@ -74,7 +74,7 @@
   <div class="row">
     <div class="col-sm-offset-3 col-sm-6">
       <div class="submit-button btn btn-medium btn-margin margin-top-bottom">
-        <%= link_to 'View Submissions', challenge_submissions_path(@challenge.id) %>
+        <%= link_to 'view submissions', challenge_submissions_path(@challenge.id) %>
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@
   <div class="row ">
     <div class="col-sm-offset-3 col-sm-6">
       <div class="btn btn-medium btn-margin margin-top-bottom">
-        <%= link_to 'Submit your solution !', new_challenge_submission_path(@challenge.id) %>
+        <%= link_to 'submit your solution', new_challenge_submission_path(@challenge.id) %>
       </div>
     </div>
   </div>
@@ -143,7 +143,6 @@
     //     $('#comment-button').hide();
     //     });
     //     });
-
 </script>
 
 
