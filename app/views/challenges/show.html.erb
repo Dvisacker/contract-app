@@ -3,6 +3,16 @@
   {
     font-size: 16px
   }
+
+  .towards-bottom {
+    margin-top: 100px;
+  }
+
+  .margin-top {
+    margin-top: 50px;
+  }
+
+
 </style>
 
 <div class="page-container">
@@ -42,7 +52,7 @@
               <%- if current_user %>
                 <%= @challenge.hint2 %>
                 <% else %>
-                <a href="#" class="black-link" id="open-panel-button">Connect to see the hints</a>
+                <a href="#" class="btn btn-medium" id="open-panel-button">sign-in to view</a>
                 <!-- <div class="btn" id="open-panel-button"> -->
                   <!-- Connect to see the hints -->
                 <!-- </div> -->
@@ -82,10 +92,10 @@
   <% end %>
 
   <% else %> 
-    <div class="row ">
+    <div class="row margin-top">
     <div class="col-sm-offset-3 col-sm-6">
       <div class="submit-button btn btn-medium btn-margin margin-top-bottom" id = "open-panel-button">
-        <span>Connect to your account to post your solution and view comments</span>
+        <span>sign-in to view comments and post solutions</span>
       </div>
     </div>
   </div>
@@ -105,7 +115,7 @@
 <!-- </div> -->
 
 
-<div class="row ">
+<div class="row towards-bottom">
   <div class="col-sm-12">
     <p>
       <strong>Challenge Number :</strong>
@@ -119,6 +129,8 @@
 </div>
 <%= link_to 'Back', root_path, class: "black-font" %>
 </div>
+
+
 
 <script>
     // $(document).ready(function() {

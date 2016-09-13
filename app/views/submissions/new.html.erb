@@ -4,15 +4,15 @@
 
 	<div class="row">
     	<div class="col-sm-offset-1 col-sm-10">
-			<h2>Challenge</h2><br>
+			<h2>Challenge Description</h2><br>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-sm-offset-1 col-sm-10">
-			<div class="panel panel-widget">
+			<div class="panel">
 				<div class="panel-body">
-					<p class = "well text-justify">
+					<p>
   						<%= @challenge.body %>
 					</p>
 				</div>
@@ -22,14 +22,18 @@
 
 	<br>
 
+	
 	<div class="row">
     	<div class="col-sm-offset-1 col-sm-10">
-			<h2>Your Code</h2>
-		</div>
-	</div>
+    	<h2>Solution Description</h2><br>
+			<div class="panel">
+				<div class="panel-body">
+					<p>Please include a detailed description of your hack with snippets of any code/commands that you wrote</p>
+				
 
 	<%= render 'form' %>
+	</div>
+			</div>
 	<%= link_to 'Back', challenge_submissions_path %>
-
 </div>
 </div>
