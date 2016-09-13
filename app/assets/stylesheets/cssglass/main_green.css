@@ -756,6 +756,10 @@ a.black-font {
 	color: black;
 }
 
+.white-font {
+	color: white;
+}
+
 .small-margin {
 	margin: 5px;
 }

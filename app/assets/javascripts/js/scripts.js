@@ -18,7 +18,7 @@ $(document).ready(function() {
     wow.init();
 
 	// Slide out navigation
-	$("#navigation").on("click", function(e){
+	$("#navigation, #open-panel").on("click", function(e){
 		e.preventDefault();
 		$(this).addClass("open");
 		$("#slide_out_menu").toggleClass("open");
