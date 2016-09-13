@@ -32,21 +32,30 @@
         <div class="panel-body">
           <textarea class = "codemirror-textarea"><%= @challenge.code %></textarea>
         </div>
+        <div class="panel-footer"> 
+         <% if @challenge.hint1 != "" || @challenge.hint2 != "" %>
+            <p class = "text-justify">
+              <strong>Hint1:</strong>
+              <%= @challenge.hint1 %>
+              <br>
+              <strong>Hint2:</strong>
+              <%- if current_user %>
+                <%= @challenge.hint2 %>
+                <% else %>
+                <a href="#" class="black-link" id="open-panel-button">Connect to see the hints</a>
+                <!-- <div class="btn" id="open-panel-button"> -->
+                  <!-- Connect to see the hints -->
+                <!-- </div> -->
+              <%- end %>
+            <p>
+          <% else %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 
 
- <% if @challenge.hint1 != "" || @challenge.hint2 != "" %>
-    <p class = "well text-justify">
-      <strong>Hint1:</strong>
-      <%= @challenge.hint1 %>
-      <br>
-      <strong>Hint2:</strong>
-      <%= @challenge.hint2 %>
-    <p>
-  <% else %>
-  <% end %>
 
 
 <%- if current_user %>
@@ -75,8 +84,8 @@
   <% else %> 
     <div class="row ">
     <div class="col-sm-offset-3 col-sm-6">
-      <div class="btn btn-medium btn-margin margin-top-bottom" id = "open-panel">
-        <p>Connect to your account to post your solution and view comments</p>
+      <div class="submit-button btn btn-medium btn-margin margin-top-bottom" id = "open-panel-button">
+        <span>Connect to your account to post your solution and view comments</span>
       </div>
     </div>
   </div>
@@ -88,7 +97,6 @@
   <div class="write-comment-container text-left top-padding">
     <h2>Comment about this challenge :</h2>
     <br>
-
     <%= render 'comments/form' %>
     <%= render 'comments/commentbox' %>
     

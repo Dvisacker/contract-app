@@ -1,6 +1,3 @@
-<style>
-</style>
-
 <!-- Page content begin -->
 <div class="page-container">
 
@@ -33,7 +30,7 @@
       <tbody class = "text-left">
         <% @challenges.each do |challenge| %>
           <tr class = "highlight">
-            <td><%= link_to challenge.title, challenge_path(challenge) %></td>
+            <td><%= link_to challenge.title, challenge_path(challenge), class: 'table-cells-text' %></td>
             <td><%= time_ago_in_words(challenge.created_at) %> ago</td>
             <td>
               <%- if challenge.completed %>

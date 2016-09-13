@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root 'welcom#index'
+  root 'challenges#index'
 
   resources :challenges do
     resources :comments

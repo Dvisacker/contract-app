@@ -813,11 +813,25 @@ th{
 
 tr a{
   color:black!important;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+tr a:hover {
+	color:green!important;
+	text-decoration: none;
+}
+
+.black-link {
+	color:black!important;
+	text-decoration: none;
+	}
+.black-link:hover {
+	color:green!important;
+	text-decoration: none;
 }
 
 .link {
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 
 

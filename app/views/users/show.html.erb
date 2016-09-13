@@ -136,7 +136,7 @@ border-radius: 4px;
 						<div class="panel-widget mini-panel text-center">
 							<div class="panel-body">
 								<i class="fa fa-comments fa-2x" aria-hidden="true"></i><br />
-								<span class="number-big"><%= current_user.number_of_comments %></span><br />
+								<span class="number-big"><%= comment_count(@user) %></span><br />
 								<b>COMMENTS</b>
 							</div>
 						</div>	
@@ -146,7 +146,7 @@ border-radius: 4px;
 						<div class="panel-widget mini-panel text-center">
 							<div class="panel-body">
 								<i class="fa fa-file-code-o fa-2x" aria-hidden="true"></i><br />
-								<span class="number-big"><%= current_user.number_of_submissions %></span><br />
+								<span class="number-big"><%= submission_count(@user) %></span><br />
 								<b>SUBMISSIONS</b>
 							</div>
 						</div>

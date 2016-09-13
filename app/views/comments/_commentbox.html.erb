@@ -44,6 +44,12 @@
           </div>
           <div class="comment-body panel-footer">
               <%= comment.body %>
+              <%- if comment.user == current_user %>
+                <br>
+                <div class="pull-right">
+                  <!-- Insert edit and destroy button before -->
+                </div>
+              <% end %>
           </div>
           <br>
             <% end %>

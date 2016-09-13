@@ -1,11 +1,73 @@
-<section id="header" class="grey-bg text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2 class="wow fadeInUp" style="color:white">We've hidden funds for hackers to find</h2>
-                    <p class="wow fadeInUp" data-wow-delay=".2s" style="color:white; text-shadow: #000 2px 2px">Learn and exploit blockchain technology to earn cryptocurrency in our playground and abroad.</p>
-                </div>
-                <div id="scroll-down" class="wow fadeInUp" data-wow-delay=".3s"></div>
-            </div>
-        </div>
- </section>
+<!-- Page content begin -->
+<div class="page-container">
+
+  <div class="bring-down">
+  <!-- Notice -->
+  <!-- <p id="notice" class="alert alert-dismissible alert-info"><%= notice %></p> -->
+
+
+  <!-- Page header -->
+  <div class="header-container">
+    <h1 class="smartHead">Smart Contract Challenges</h1>
+  </div>
+
+  <hr>
+
+  <div class="panel-bordered">
+  <div class="panel-body">
+
+    <table class="table col-sm-6">
+
+      <thead class="thead">
+        <tr>
+          <th>TITLE</th>
+          <th>UPLOADED</th>
+          <th>STATUS</th>
+          <!--<th>User viewcount</th>-->
+        </tr>
+      </thead>
+
+      <tbody class = "text-left">
+        <% @challenges.each do |challenge| %>
+          <tr class = "highlight">
+            <td><%= link_to challenge.title, challenge_path(challenge) %></td>
+            <td><%= time_ago_in_words(challenge.created_at) %> ago</td>
+            <td>
+              <%- if challenge.completed %>
+              <p><i id="completed-icon" class="fa fa-times" aria-hidden="true"></i>  Completed</p>
+              <%else%>
+              <p><i id="active-icon" class="fa fa-check" aria-hidden="true"></i>  Active</p>  
+              <%end%>
+            </td>
+          <!--  <td><%= challenge.user_viewcount %></td>-->
+            <%- if current_user %>
+              <%- if (current_user.user_type?) %>
+                <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
+                <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%else%>
+              <%end%>
+            <%end%>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+<br>
+
+<%- if current_user %>
+  <%- if (current_user.user_type?) %> 
+
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+    <button type="button" class="btn btn-medium btn-margin">
+      <%= link_to 'New Challenge', new_challenge_path %>
+    </button>
+    </div>
+  </div>
+
+  <%end %>
+<%end %>
+</div>
+</div>
