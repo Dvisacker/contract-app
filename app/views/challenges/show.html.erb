@@ -102,19 +102,6 @@
               <%= render 'comments/commentbox' %>
           <% end %>
   
-          <div class="row">
-            <div class="col-sm-12">
-              <p>
-                <strong>Challenge Number :</strong>
-                <%= @challenge.id %> |
-                <strong>Time created:</strong>
-                <%= time_ago_in_words (@challenge.created_at) %> ago | 
-                <strong>User viewcount:</strong>
-                <%= @challenge.user_viewcount %>
-              </p>
-            </div>
-          </div>
-          <%= link_to 'Back', root_path, class: "black-font" %>
   </div>
 </div>
 
