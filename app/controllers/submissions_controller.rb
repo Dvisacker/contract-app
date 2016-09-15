@@ -5,8 +5,8 @@ class SubmissionsController < ApplicationController
   # GET /challenges/:challenge_id/submissions 
   # GET /challenges/:challenge_id/submissions.json
   def index
-    challenge = Challenge.find(params[:challenge_id])
-    @submissions = challenge.submissions
+    @challenge = Challenge.find(params[:challenge_id])
+    @submissions = @challenge.submissions
 
     respond_to do |format|
       format.html # index.html.erb

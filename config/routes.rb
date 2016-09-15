@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :comments
     resources :submissions
   end
-  resources :users
+
+  resources :users do
+    resources :user_contracts
+    resources :user_contract_ideas
+  end
 
   resources :conversations do
     resources :messages
@@ -30,6 +34,8 @@ end
   get 'mailbox/sent' => 'mailbox#sent', :as => :mailbox_sent
   get 'mailbox/trash' => 'mailbox#trash', :as => :mailbox_trash
   get 'user/:user_id/submissions' => 'submissions#index_user', :as => :user_submissions
+  get 'user_contract' => 'user_contracts#index_all', :as => :user_contracts_all
+  get 'user_contract_ideas' => 'user_contract_ideas#index_all', :as => :user_contract_ideas_all
  
 
   # get 'user/:id' => 'users#show', :as => :user_show

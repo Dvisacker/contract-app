@@ -9,39 +9,45 @@
 <div class="panel">
 <div class="panel-body">
 
-<table class="table col-sm-12">
-  <thead class="thead">
-    <tr>
-      <th>CHALLENGE TITLE</th>
-      <th>POSTED</th>
-      <th>STATUS</th>
-      <th></th>
-      <th></th>
-      <!-- <th></th> -->
-    </tr>
-  </thead>
-
-  <tbody class = "text-left">
-    <% @submissions.each do |submission| %>
+<%- if current_user.submissions.length > 0 %>
+  <table class="table col-sm-12">
+    <thead class="thead">
       <tr>
-        <td><b><%=submission.challenge.title %></b></td>
-        <td><%= time_ago_in_words(submission.created_at) %> ago</td>
-        <td>
-          <%- if submission.status == 'accepted' %>
-            <b><i id="active-icon" class="fa fa-times" aria-hidden="true"></i>   Accepted</b>
-          <%- elsif submission.status == 'rejected' %>  
-            <b><i id="completed-icon" class="fa fa-check" aria-hidden="true"></i>   Rejected</b>
-          <%- else %>
-            <b><i id="waiting-icon" class="fa fa-spinner" aria-hidden="true"></i>   Processing</b>
-          <%end%>
-        </td>
-        <td><%= link_to 'Show', [submission.challenge, submission] %></td>
-        <td><%= link_to 'Edit', edit_challenge_submission_path(submission.challenge, submission) %></td>
-        <!-- <td><%= link_to 'Delete', [submission.challenge, submission], method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <th>CHALLENGE TITLE</th>
+        <th>POSTED</th>
+        <th>STATUS</th>
+        <th></th>
+        <th></th>
+        <!-- <th></th> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody class = "text-left">
+      <% @submissions.each do |submission| %>
+        <tr>
+          <td><b><%=submission.challenge.title %></b></td>
+          <td><%= time_ago_in_words(submission.created_at) %> ago</td>
+          <td>
+            <%- if submission.status == 'accepted' %>
+              <b><i id="active-icon" class="fa fa-times" aria-hidden="true"></i>   Accepted</b>
+            <%- elsif submission.status == 'rejected' %>  
+              <b><i id="completed-icon" class="fa fa-check" aria-hidden="true"></i>   Rejected</b>
+            <%- else %>
+              <b><i id="waiting-icon" class="fa fa-spinner" aria-hidden="true"></i>   Processing</b>
+            <%end%>
+          </td>
+          <td><%= link_to 'Show', [submission.challenge, submission] %></td>
+          <td><%= link_to 'Edit', edit_challenge_submission_path(submission.challenge, submission) %></td>
+          <!-- <td><%= link_to 'Delete', [submission.challenge, submission], method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%else%>
+  <p>You have not made any submissions yet</p>
+<%end%>
+
 
 </div>
 </div>

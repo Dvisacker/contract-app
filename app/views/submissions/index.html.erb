@@ -4,11 +4,15 @@
   <p id="notice"><%= notice %></p>
 
   <div class="header-container">
-    <h1 class="smartHead">Smart Contract Challenges</h1>
+    <h1 class="smartHead">Challenge Submissions</h1>
+    <hr>
   </div>
+
 
   <div class="panel">
     <div class="panel-body">
+
+      <%- if @challenge.submissions.length > 0 %>
       <table class="table col-sm-6">
         <thead>
           <tr>
@@ -32,6 +36,10 @@
           <% end %>
         </tbody>
       </table>
+
+      <%else%>
+      <p>There are no submissions for this challenge yet</p>
+      <%end%>
     </div>
   </div>
 <br>

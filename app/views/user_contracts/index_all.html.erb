@@ -1,0 +1,40 @@
+<div class="page-container">
+<div class="bring-down">
+<p id="notice"><%= notice %></p>
+
+<div class="header-container">
+  <h2 class="Smarthead">Contracts submitted by users</h2><br>
+</div>  
+
+<div class="panel">
+<div class="panel-body">
+
+<table class="table col-sm-12">
+  <thead class="thead">
+    <tr>
+      <th>CHALLENGE TITLE</th>
+      <th>POSTED</th>
+      <th></th>
+      <th></th>
+      <!-- <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody class = "text-left">
+    <% user_contracts.each do |user_contract| %>
+      <tr>
+        <td><b><%=user_contract.title %></b></td>
+        <td><%= time_ago_in_words(user_contract.created_at) %> ago</td>
+        <td><%= link_to 'Show', user_user_contract_path(user_contract.user, user_contract) %></td>
+        <td><%= link_to 'Edit', edit_user_user_contract_path(user_contract.user, user_contract) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<%= link_to 'List of challenges', challenges_path %>
+</div>
+</div>

@@ -1,0 +1,57 @@
+<%= form_for [@user, @user_contract_idea] do |f| %>
+
+  <% if @user_contract_idea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_contract_idea.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+      <br>
+      <ul>
+      <% @user_contract_idea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      <br>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <div class="form-group">
+      <div class="row ">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p><strong>Idea Summary</strong></p>
+          <%= f.text_field :title %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p><strong>Contract Idea Description </strong> Provide some simple description of your contract idea</p>
+          <%= f.text_area :description, cols: "30", rows: "10", id: "challenge_text" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p><strong>Code: </strong> If you wish so, provide some solidity code snippets</p>
+          <%= f.text_area :code, cols: "30", class: "codemirror-textarea" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= f.submit "Submit your contract idea", :class => "btn btn-margin margin-top-bottom" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

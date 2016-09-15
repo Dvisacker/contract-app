@@ -1,0 +1,47 @@
+<div class="page-container">
+  <div class="bring-down">
+  <!-- Notice -->
+  <p id="notice"><%= notice %></p>
+
+  <div class="header-container">
+    <h1 class="smartHead">User Contract Submissions</h1>
+    <hr>
+  </div>
+
+  <div class="panel">
+    <div class="panel-body">
+    <%- if @user.user_contracts.length > 0 %>
+
+      <table class="table col-sm-6">
+        <thead>
+          <tr>
+            <th>Content</th>
+            <th>Username</th>
+            <th>Time created</th>
+          </tr>
+        </thead>
+
+        <tbody class = "text-left">
+          <% @user_contracts.each do |user_contract| %>
+            <tr>
+              <td><%= truncate(user_contract.description, length: 100) %></td>
+              <td><%= user_contract.user.username %></td>
+              <td><%= user_contract.created_at %></td>
+
+              <td><%= link_to 'Show', [user_contract.user, user_contract] %></td>
+              <td><%= link_to 'Edit', edit_user_user_contract_path(user_contract.user, user_contract) %></td>
+              <td><%= link_to 'Destroy', [user_contract.user, user_contract], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <%else%>
+    <p>You have no made any contract submissions</p>
+    <%end%>
+    </div>
+  </div>
+<br>
+<%= link_to 'Show Challenges', challenges_path %>
+</div>
+</div>

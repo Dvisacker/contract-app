@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912164611) do
+ActiveRecord::Schema.define(version: 20160915053810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160912164611) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.boolean  "completed",      default: false
+    t.boolean  "allowed",        default: true
   end
 
   create_table "comments", force: :cascade do |t|
@@ -41,6 +42,15 @@ ActiveRecord::Schema.define(version: 20160912164611) do
 
   add_index "comments", ["challenge_id"], name: "index_comments_on_challenge_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "contract_ideas", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "code"
+    t.text     "solution_description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "conversations", force: :cascade do |t|
     t.string   "subject",    default: ""
@@ -117,6 +127,29 @@ ActiveRecord::Schema.define(version: 20160912164611) do
     t.string   "status",          default: "waiting"
   end
 
+  create_table "user_contract_ideas", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.text     "description"
+    t.text     "code"
+    t.integer  "user_id"
+  end
+
+  add_index "user_contract_ideas", ["user_id"], name: "index_user_contract_ideas_on_user_id", using: :btree
+
+  create_table "user_contracts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "code"
+    t.string   "contract_adress"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+  end
+
+  add_index "user_contracts", ["user_id"], name: "index_user_contracts_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -150,4 +183,6 @@ ActiveRecord::Schema.define(version: 20160912164611) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "user_contract_ideas", "users"
+  add_foreign_key "user_contracts", "users"
 end

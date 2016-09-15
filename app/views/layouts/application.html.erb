@@ -35,13 +35,14 @@
         }
 
         .huge-margin { 
-         margin-top: 250px;
+         margin-top: 280px;
         }
     </style>
 
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'defaults' %>
     <%= csrf_meta_tags %>
 
     <div id="loader" style="width:100%; height:100%; background-color:white; position:fixed; top:0px; left:0px; text-align:center; padding-top:20%; z-index:200">
@@ -91,10 +92,15 @@
                                     <li><%= link_to "Your submissions", user_submissions_path(current_user) %></li>
                                     <li><%= link_to "Your profile", edit_user_path(current_user) %></li>
                                     <li><%= link_to " Inbox", mailbox_inbox_path %></li>
+                                    <li><%= link_to " Submit a contract", new_user_user_contract_path(current_user) %></li>
+                                    <li><%= link_to " Submit a contract idea", new_user_user_contract_idea_path(current_user) %></li>
                                     <!-- if the user is an admin, we allow to post new challenges and to view the submissions -->
                                     <%- if (current_user.user_type?) %> 
                                         <li><%= link_to "Post a new challenge", new_challenge_path %></li>
                                         <li><%= link_to "Admin Panel", rails_admin_path %></li>
+                                        <li><%= link_to "View all user contract submissions", user_contracts_all_path %></li>
+                                        <li><%= link_to "View all user contract ideas submissions", user_contract_ideas_all_path %></li>
+                  
                                     <% else %>
                                     <% end %>
                                     <li><%= link_to "Log out", destroy_user_session_path, :method => :get %></li>

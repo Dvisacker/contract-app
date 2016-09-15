@@ -1,0 +1,46 @@
+<div class="page-container">
+  <div class="bring-down">
+  <!-- Notice -->
+  <p id="notice"><%= notice %></p>
+
+  <div class="header-container">
+    <h1 class="smartHead">Your contract ideas</h1>
+    <br>
+  </div>
+
+  <div class="panel">
+    <div class="panel-body">
+    <%- if @user.user_contract_ideas.length > 0 %>
+      <table class="table col-sm-6">
+        <thead>
+          <tr>
+            <th>Content</th>
+            <th>Username</th>
+            <th>Time created</th>
+          </tr>
+        </thead>
+
+        <tbody class = "text-left">
+          <% @user_contract_ideas.each do |user_contract_idea| %>
+            <tr>
+              <td><%= truncate(user_contract_idea.description, length: 100) %></td>
+              <td><%= user_contract_idea.user.username %></td>
+              <td><%= user_contract_idea.created_at %></td>
+
+              <td><%= link_to 'Show', [user_contract_idea.user, user_contract_idea] %></td>
+              <td><%= link_to 'Edit', edit_user_user_contract_idea_path(user_contract_idea.user, user_contract_idea) %></td>
+              <td><%= link_to 'Delete', [user_contract_idea.user, user_contract_idea], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%else%>
+      <p>You have not submitted any contract ideas</p>
+      <%end%>
+    </div>
+  </div>
+<br>
+<%= link_to 'Show Challenges', challenges_path %>
+</div>
+</div>

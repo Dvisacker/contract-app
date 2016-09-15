@@ -12,6 +12,9 @@
 // maybe have to require turbolinks
 // maybe have to require bootstrap-sprockets
 
+//= require jquery
+//= require jquery_ujs
+
 
 //= require jquery/jquery-3.1.0.min
 //= require chosen-jquery
