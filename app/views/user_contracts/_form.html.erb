@@ -1,69 +1,84 @@
 <%= form_for [@user, @user_contract] do |f| %>
 
-  <% if @user_contract.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_contract.errors.count, "error") %> prohibited this challenge from being saved:</h2>
-      <br>
+
+<div class="row ">
+  <div class="col-sm-offset-2 col-sm-8">
+    <% flash.each do |key, value| %>
+    <div class="spacer-sm"></div>
+    <div class="alert alert-<%= key %>">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong> <%= value %></strong>
+    </div>
+    <% end %>
+
+    <% if @user_contract.errors.any? %>
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong><%= pluralize(@user_contract.errors.count, "error") %> prohibited this challenge from being saved:</strong><br>
       <ul>
-      <% @user_contract.errors.full_messages.each do |message| %>
+        <% @user_contract.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
       <br>
+
     </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
 
 
-  <div class="field">
-    <div class="form-group">
-      <div class="row ">
-        <div class="col-sm-offset-2 col-sm-8">
-          <p><strong>Contract title</strong></p>
-          <%= f.text_field :title %>
-        </div>
+
+<div class="field">
+  <div class="form-group">
+    <div class="row ">
+      <div class="col-sm-offset-2 col-sm-8">
+        <p><strong>Contract title</strong></p>
+        <%= f.text_field :title %>
       </div>
     </div>
   </div>
-  <div class="field">
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-          <p><strong>Contract description: </strong> Provide some simple description of your contract</p>
-          <%= f.text_area :description, cols: "30", rows: "10", id: "challenge_text" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="field">
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-          <p><strong>Code: </strong> Provide the solidity code you used for this contract</p>
-          <%= f.text_area :code, cols: "30", class: "codemirror-textarea" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-        <div class="field">
-          <p><strong>Contract Adress: </strong>  If your contract is already deployed, you can let us know the contract adress below</p>
-          <%= f.text_field :contract_adress%>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="actions">
+</div>
+<div class="field">
+  <div class="form-group">
     <div class="row">
       <div class="col-sm-offset-2 col-sm-8">
-        <%= f.submit "Submit your contract", :class => "btn btn-margin margin-top-bottom" %>
+        <p><strong>Contract description: </strong> Provide some simple description of your contract</p>
+        <%= f.text_area :description, cols: "30", rows: "10", id: "challenge_text" %>
       </div>
     </div>
   </div>
+</div>
+
+<div class="field">
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <p><strong>Code: </strong> Provide the solidity code you used for this contract</p>
+        <%= f.text_area :code, cols: "30", class: "codemirror-textarea" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+      <div class="field">
+        <p><strong>Contract Adress: </strong>  If your contract is already deployed, you can let us know the contract adress below</p>
+        <%= f.text_field :contract_adress%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+      <%= f.submit "Submit your contract", :class => "btn btn-margin margin-top-bottom" %>
+    </div>
+  </div>
+</div>
 
 <% end %>

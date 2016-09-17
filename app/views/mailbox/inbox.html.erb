@@ -1,6 +1,13 @@
 <% stylesheet_link_tag "bootstrap/css/bootstrap.min.css" %>
 
 <div class="bring-down page-container">
+	<div class="row">
+		<div class="col-md-8">
+			<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+			<% end %>
+		</div>
+	</div>
 	<%= render partial: 'mailbox/folder_view', locals: {is_conversation: false, messages: @inbox} %>
 </div>
 

@@ -12,9 +12,11 @@ class UsersController < ApplicationController
   	@user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to edit_user_path, notice: 'The intro was successfully updated.' }
+        flash[:success] = 'Your self-introduction was successfully updated'
+        format.html { redirect_to edit_user_path}
         format.json { render :show, status: :ok, location: @user }
       else
+        flash[:danger] = 'Error. Please try again'
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -24,8 +26,10 @@ class UsersController < ApplicationController
   def update_password 
         @user = User.find(current_user.id)
       if @user.update(user_pass_params)
+        flash[:success] = 'Your password was successfully updated'
         redirect_to root_path
       else
+        flash[:danger] = 'Your password could not be updated. Please try again'
         render "edit"
       end
   end

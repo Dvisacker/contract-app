@@ -1,22 +1,26 @@
 <div class="page-container">
-<div class="bring-down">
-<br><br>
-<p id="notice"><%= notice %></p>
-	<div class="panel">
-	Code submitted <%= time_ago_in_words(@submission.created_at) %> ago <br><br>
-		<div class="panel-body">
-			<textarea class = "codemirror-textarea"><%= @submission.submission_text %></textarea>
-		</div>
+	<div class="bring-down">
+		<br><br>
+
+      	<% flash.each do |key, value| %>
+        	<div class="alert alert-<%= key %>"><%= value %></div>
+      	<% end %>
+		
+		<div class="panel">
+			Code submitted <%= time_ago_in_words(@submission.created_at) %> ago <br><br>
+			<div class="panel-body">
+				<textarea class = "codemirror-textarea"><%= @submission.submission_text %></textarea>
+			</div>
+		</div>	
+
+		<p class="text-center">
+  			<strong>Submission Number :</strong>
+  			<%= @submission.id %> <br>
+  			<%= link_to 'Back', user_submissions_path(@submission.user), class: "black-font" %>
+		</p>
+
+
 	</div>
-
-<p class="text-center">
-  <strong>Submission Number :</strong>
-  <%= @submission.id %> <br>
-  <%= link_to 'Back', user_submissions_path(@submission.user), class: "black-font" %>
-</p>
-
-
-</div>
 </div>
 
 

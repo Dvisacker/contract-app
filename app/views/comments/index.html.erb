@@ -1,38 +1,41 @@
-<div class="bring-down">
-<p id="notice"><%= notice %></p>
+<div class="page-container">
+  <div class="bring-down">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 
-<div class="header-container">
-  <h1>Listing Comments</h1>
-</div>
+      <div class="header-container">
+        <h1>Listing Comments</h1>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
-      <th>Challenge</th>
-      <th>Replies</th>
-      <th>Timestamp</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th>User</th>
+            <th>Challenge</th>
+            <th>Replies</th>
+            <th>Timestamp</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.title %></td>
-        <td><%= comment.body %></td>
-        <td><%= comment.user %></td>
-        <td><%= comment.challenge %></td>
-        <td><%= comment.replies %></td>
-        <td><%= comment.timestamp %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <td><%= comment.title %></td>
+              <td><%= comment.body %></td>
+              <td><%= comment.user %></td>
+              <td><%= comment.challenge %></td>
+              <td><%= comment.replies %></td>
+              <td><%= comment.timestamp %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<br>
-
-<%= link_to 'New Comment', new_challenge_comment_path %>
+      <br>
+      <%= link_to 'New Comment', new_challenge_comment_path %>
+  </div>
 </div>

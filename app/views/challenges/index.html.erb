@@ -1,10 +1,18 @@
 <!-- Page content begin -->
 <div class="page-container">
-
   <div class="bring-down">
-  <!-- Notice -->
-  <!-- <p id="notice" class="alert alert-dismissible alert-info"><%= notice %></p> -->
 
+  <!-- Notice -->
+
+  <div class="row ">
+    <div class="col-sm-offset-2 col-sm-8">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <%= value %></div>
+      <% end %>
+    </div>
+  </div>
 
   <!-- Page header -->
   <div class="header-container">

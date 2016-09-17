@@ -1,7 +1,16 @@
 <div class="page-container">
   <div class="bring-down">
   <!-- Notice -->
-  <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <strong> <%= value %></strong>
+          <button type="button" class="close" data-dismiss="alert">x</button>
+        </div>
+      <% end %>
+      </div>
+      </div>
 
   <div class="header-container">
     <h1 class="smartHead">Challenge Submissions</h1>
@@ -30,8 +39,11 @@
               <td><%= submission.created_at %></td>
 
               <td><%= link_to 'Show', [submission.challenge, submission] %></td>
-              <td><%= link_to 'Edit', edit_challenge_submission_path(submission.challenge, submission) %></td>
-              <td><%= link_to 'Destroy', [submission.challenge, submission], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if current_user.user_type %>
+                <td><%= link_to 'Edit', edit_challenge_submission_path(submission.challenge, submission) %></td>
+                <td><%= link_to 'Destroy', [submission.challenge, submission], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <%else%>
+              <%end%>
             </tr>
           <% end %>
         </tbody>

@@ -35,9 +35,11 @@ class ChallengesController < ApplicationController
 
     respond_to do |format|
       if @challenge.save
-        format.html { redirect_to @challenge, notice: 'Challenge was successfully created.' }
+        flash[:success] = 'Challenge was successfully created'
+        format.html { redirect_to @challenge }
         format.json { render :show, status: :created, location: @challenge }
       else
+        flash[:error] = 'Challenge could not be saved. Please try again'
         format.html { render :new }
         format.json { render json: @challenge.errors, status: :unprocessable_entity }
       end
@@ -49,9 +51,11 @@ class ChallengesController < ApplicationController
   def update
     respond_to do |format|
       if @challenge.update(challenge_params)
-        format.html { redirect_to @challenge, notice: 'Challenge was successfully updated.' }
+        flash[:success] = 'Challenge was successfully updated'
+        format.html { redirect_to @challenge }
         format.json { render :show, status: :ok, location: @challenge }
       else
+        flash[:error] = 'Challenge could not be updated. Please try again'
         format.html { render :edit }
         format.json { render json: @challenge.errors, status: :unprocessable_entity }
       end
@@ -63,7 +67,8 @@ class ChallengesController < ApplicationController
   def destroy
     @challenge.destroy
     respond_to do |format|
-      format.html { redirect_to challenges_url, notice: 'Challenge was successfully destroyed.' }
+      flash[:success] = 'Challenge was successfully destroyed'
+      format.html { redirect_to challenges_url }
       format.json { head :no_content }
     end
   end

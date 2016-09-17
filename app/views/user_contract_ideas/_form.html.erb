@@ -1,57 +1,96 @@
 <%= form_for [@user, @user_contract_idea] do |f| %>
 
-  <% if @user_contract_idea.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_contract_idea.errors.count, "error") %> prohibited this challenge from being saved:</h2>
-      <br>
-      <ul>
-      <% @user_contract_idea.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+<div class="row ">
+  <div class="col-sm-offset-2 col-sm-8">
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong><%= value %><strong>
+      </div>
       <% end %>
-      </ul>
-      <br>
+
+      <% if @user_contract_idea.errors.any? %>
+      <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong><%= pluralize(@user_contract_idea.errors.count, "error") %> prohibited this challenge from being saved:</strong></br>
+        <ul>
+          <% @user_contract_idea.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="spacer"></div>
 
 
-  <div class="field">
-    <div class="form-group">
-      <div class="row ">
-        <div class="col-sm-offset-2 col-sm-8">
-          <p><strong>Idea Summary</strong></p>
-          <%= f.text_field :title %>
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-8">
+    <div class="panel">
+      <div class="panel-body">    
+        <strong>You can submit us your contract ideas via this submission form. We will review your idea and implement it as a smart contract
+          in the Ethereum network</strong>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="field">
-    <div class="form-group">
+
+    <div class="spacer">
+      
+    </div>
+
+
+    <div class="field">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-offset-2 col-sm-8">
+            <p><strong>Idea Summary:</strong> Describe your contract idea in one sentence</p>
+            <%= f.text_field :title %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-offset-2 col-sm-8">
+            <p><strong>Contract Idea Description:</strong> Provide a detailed description of your contract idea</p>
+            <%= f.text_area :description, cols: "30", rows: "10", id: "challenge_text" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-offset-2 col-sm-8">
+            <p><strong>Code: </strong> If you wish so, provide some solidity code snippets</p>
+            <%= f.text_area :code, cols: "30", class: "codemirror-textarea" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
       <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
-          <p><strong>Contract Idea Description </strong> Provide some simple description of your contract idea</p>
-          <%= f.text_area :description, cols: "30", rows: "10", id: "challenge_text" %>
+          <%= f.submit "Submit your contract idea", :class => "btn btn-margin margin-top-bottom" %>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="field">
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-          <p><strong>Code: </strong> If you wish so, provide some solidity code snippets</p>
-          <%= f.text_area :code, cols: "30", class: "codemirror-textarea" %>
-        </div>
-      </div>
-    </div>
-  </div>
+    <% end %>
 
-  <div class="actions">
-    <div class="row">
-      <div class="col-sm-offset-2 col-sm-8">
-        <%= f.submit "Submit your contract idea", :class => "btn btn-margin margin-top-bottom" %>
-      </div>
-    </div>
-  </div>
 
-<% end %>
+    <script>
+      window.setTimeout(function() {
+        $(".alert_message").fadeTo(2000, 0).slideUp(500, function(){
+          $(this).remove(); 
+        });
+      }, 10000);
+    </script>

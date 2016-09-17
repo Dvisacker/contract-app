@@ -1,6 +1,14 @@
 <div class="page-container">
 <div class="bring-down">
-<p id="notice"><%= notice %></p>
+  <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <button type="button" class="close" data-dismiss="alert">x</button><strong><%= value %><strong>
+        </div>
+      <% end %>
+  </div>
+  </div>
 
 <div class="header-container">
   <h2 class="Smarthead">Your submissions</h2><br>

@@ -1,33 +1,49 @@
 <%= bootstrap_form_for([@challenge, @submission]) do |f| %>
 
-  <% if @submission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
-      <ul>
-      <% @submission.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <div class="row">
-      <div class="col-sm-12">
-        <%= f.text_area :submission_text, cols: "120", rows: "10", :label => '.', class: "codemirror-textarea"%>
+<% if @submission.errors.any? %>
+<div class="row">
+  <div class="col-sm-offset-2 col-sm-8">
+    <div class="alert alert-danger">
+      <div id="error_explanation">
+        <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+        <ul>
+          <% @submission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
+</div>
+<% end %>
 
-  <div class="actions">
-    <div class="form-group margin-top-bottom-lg">
+<div class="panel">
+  <div class="panel-body">
+
+    <div class="field">
       <div class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-          <%= f.submit "Submit your solution !", :class => "btn btn-medium" %>
+        <div class="col-sm-12">
+          <h2>Solution Description</h2><br>
+          <p>Please include a detailed description of your hack with snippets of any code/commands that you wrote</p>
+          <%= f.text_area :submission_text, cols: "120", rows: "10", :label => '.', class: "codemirror-textarea"%>
         </div>
       </div>
     </div>
+
   </div>
+</div>
+
+
+<div class="actions">
+  <div class="form-group margin-top-bottom-lg">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= f.submit "Submit your solution !", :class => "btn btn-medium" %>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <% end %>
 

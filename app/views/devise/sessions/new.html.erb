@@ -1,42 +1,49 @@
 <div class="bring-down">
-<div class="header-container">
-  <h2 class = "center-text">LOG IN</h2>
-</div>
+  <div class="header-container">
+    <h2 class = "center-text">LOG IN</h2>
+  </div>
 
-<br>
+  <br>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
 
-  <div class="form-group">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
+      <%= devise_error_messages! %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
         <p class="form-margin"><strong>Email</strong></p>
         <%= f.email_field :email, class: "form-control" %>
         <p class="form-margin"><strong>Password</strong></p>
-          <%= f.password_field :password, class: "form-control" %>
-    </div>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
     </div>
   </div>
+  
   <br>
 
   <div class="form-group">
-      <div class="row">
-        <div class="col-sm-offset-4 col-sm-4">
-          <%= f.submit "Log In", class: "btn small-margin-top-bottom" %>
-        </div>
+    <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
+        <%= f.submit "Log In", class: "btn small-margin-top-bottom" %>
       </div>
-  </div>
-
-<!-- Check additional code for rememberable feature -->
-
-  <div class="form-group center-text">
-    <div class="col-sm-offset-3 col-sm-6">
-          <%= render "devise/shared/links" %>
     </div>
   </div>
 
-<% end %>
+  <!-- Check additional code for rememberable feature -->
 
-<br><br>
+  <div class="form-group center-text">
+    <div class="col-sm-offset-3 col-sm-6">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+
+  <% end %>
+
+  <br><br>
 
 </div>

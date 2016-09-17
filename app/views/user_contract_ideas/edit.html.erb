@@ -1,5 +1,8 @@
 <div class="bring-down">
 <div class="header-container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 	<h1 class="center-text">Edit your contract idea submission</h1>
 </div>
 

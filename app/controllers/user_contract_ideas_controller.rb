@@ -39,13 +39,17 @@ class UserContractIdeasController < ApplicationController
   # POST /challenges
   # POST /challenges.json
   def create
+    @user = current_user
     @user_contract_idea = UserContractIdea.new(user_contract_idea_params)
     @user_contract_idea.user_id = current_user.id
     respond_to do |format|
+      
       if @user_contract_idea.save
-        format.html { redirect_to root_url, notice: 'Your contract idea was successfully submitted, it will be reviewed shortly' }
+        format.html { redirect_to root_url }
+        flash[:success] = 'Your contract idea was successfully submitted, it will be reviewed shortly'
       else
         format.html { render :new }
+        flash[:danger] = 'Your contract idea submission could not be successfully processed. Please try again'
         # format.json { render json: @user_conctract_ideas.errors, status: :unprocessable_entity }
       end
     end
@@ -56,8 +60,10 @@ class UserContractIdeasController < ApplicationController
   def update
     respond_to do |format|
       if @user_contract_idea.update(user_contract_idea_params)
-        format.html { redirect_to root_url, notice: 'Your contract idea was successfully updated.' }
+        flash[:success] = 'Your contract idea was successfully updated'
+        format.html { redirect_to root_url }
       else
+        flash[:danger] = 'Your contract idea submission could not be successfully processed. Please try again'
         format.html { render :edit }
         # format.json { render json: @challenge.errors, status: :unprocessable_entity }
       end
@@ -69,7 +75,8 @@ class UserContractIdeasController < ApplicationController
   def destroy
     @user_contract_idea.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Your contract idea was successfully deleted.' }
+      flash[:info] = 'Your contract idea was successfully deleted'
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end

@@ -1,19 +1,10 @@
 <div class="page-container">
-<div class="bring-down">
-<br><br>
-
-<h2 class = "center-text margin-bottom">Edit your code</h2>
-
-
-<div class="panel">
-<b>Code submitted <%= time_ago_in_words(@submission.created_at) %> ago</b>
-<div class="panel-body">
-<%= render 'formedit' %>
+	<div class="bring-down">
+		<h2 class = "center-text margin-bottom">Edit your code</h2>
+		<br>
 
 
-<p class="text-center">
-<%= link_to 'Back', challenge_submissions_path, class: 'black-font' %>
-</p>
-
-</div>
+		<%= render 'formedit' %>
+		<p class="text-center"><%= link_to 'Back', challenge_submissions_path, class: 'black-font' %></p>
+	</div>
 </div>

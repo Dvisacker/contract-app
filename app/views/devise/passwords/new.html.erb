@@ -3,9 +3,16 @@
 <div class="header-container">
 	<h2 class="center-text">FORGOT YOUR PASSWORD ?</h2>
 </div>
+<br><br>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post}) do |f| %>
+
+
+      <div class="row">
+      <div class="col-sm-offset-4 col-sm-4">
   <%= devise_error_messages! %>
+  </div>
+  </div>
 
   <div class="form-group">
       <div class="row">

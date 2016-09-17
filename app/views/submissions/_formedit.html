@@ -1,40 +1,48 @@
 <%= bootstrap_form_for([@submission.challenge, @submission]) do |f| %>
 
-  <% if @submission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@submission.challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
-      <br>
-      <ul>
-      <% @submission.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-      <br>
+<% if @submission.errors.any? %>
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+              <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+    <div class="alert alert-danger">
+        <strong>  <%= pluralize(@submission.challenge.errors.count, "error") %> prohibited this challenge from being saved:</strong>
+        <br>
+        <ul>
+          <% @submission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+        <br>
     </div>
-  <% end %>
-
-
-
-  <div class="field">
-      <div class="row">
-        <div class="col-sm-12">
-          <%= f.text_area :submission_text, cols: "120", rows: "10", :label => '-', class: "codemirror-textarea" %>
-        </div>
-      </div>
-  </div>
-
   </div>
 </div>
 
-  <div class="actions">
-    <div class="form-group margin-top-bottom">
-      <div class="row">
-        <div class="col-sm-offset-3 col-sm-6">
-          <%= f.submit "Submit your solution !", :class => "btn btn-primary btn-medium btn-margin" %>
-        </div>
+<% end %>
+
+
+
+<div class="field">
+    <div class="row">
+      <div class="col-sm-offset-1 col-sm-10">
+      <%= f.text_area :submission_text, cols: "120", rows: "10", :label => '-', class: "codemirror-textarea" %>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="actions">
+  <div class="form-group margin-top-bottom">
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-6">
+        <%= f.submit "Submit your solution !", :class => "btn btn-primary btn-medium btn-margin" %>
       </div>
     </div>
   </div>
-  
+</div>
+
 <% end %>
 

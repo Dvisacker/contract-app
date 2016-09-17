@@ -1,7 +1,9 @@
 <div class="page-container">
   <div class="bring-down">
   <!-- Notice -->
-  <p id="notice"><%= notice %></p>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 
   <div class="header-container">
     <h1 class="smartHead">Your contract ideas</h1>

@@ -1,17 +1,19 @@
 <div class="page-container">
 <div class="bring-down">
-	<br><br>
-
 	<div class="row">
     	<div class="col-sm-offset-1 col-sm-10">
-			<h2>Challenge Description</h2><br>
-		</div>
-	</div>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      </div>
+      </div>
+	<br><br>
 
 	<div class="row">
 		<div class="col-sm-offset-1 col-sm-10">
 			<div class="panel">
 				<div class="panel-body">
+					<h2>Challenge Description</h2><br>
 					<p><%= @challenge.body %></p>
 				</div>
 			</div>
@@ -23,13 +25,7 @@
 	
 	<div class="row">
     	<div class="col-sm-offset-1 col-sm-10">
-    	<h2>Solution Description</h2><br>
-			<div class="panel">
-				<div class="panel-body">
-					<p>Please include a detailed description of your hack with snippets of any code/commands that you wrote</p>
-					<%= render 'form' %>
-				</div>
-			</div>
+		<%= render 'form' %>
 			<%= link_to 'Back', challenge_submissions_path %>
 		</div>
 	</div>

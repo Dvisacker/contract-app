@@ -110,6 +110,9 @@ border-radius: 4px;
 
 <div class="page-container">
 	<div class="bring-down page-padding">
+	  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 		<h1 class = "text-center margin-top-bottom"><strong><%= @user.username %></strong></h1>
 		
 		<div id="intro-panel">

@@ -60,7 +60,7 @@ body {
 	font-family: "Lato", sans-serif;
 	font-weight: 300;
 	overflow-x: hidden;
-	color: #273140;
+	color: rgb(85,85,85);
 	height: 100%;
 }
 
@@ -753,7 +753,7 @@ footer .socials li a {
 }
 
 a.black-font {
-	color: black;
+	color: rgb(85,85,85);
 }
 
 .white-font {
@@ -807,7 +807,7 @@ th{
 }
 
 tr a{
-  color:black!important;
+  color:rgb(85,85,85)!important;
   text-decoration: none;
 }
 
@@ -817,7 +817,7 @@ tr a:hover {
 }
 
 .black-link {
-	color:black!important;
+	color:rgb(85,85,85)!important;
 	text-decoration: none;
 	}
 .black-link:hover {
@@ -945,7 +945,7 @@ margin-right: 0px;
     border-top: 1px solid #6fc754;
     border-bottom: 3px solid #6fc754;
     border-radius: 5px;
-    color: #555;
+    color: rgb(85,85,85);
     font-weight: 400;
 }
 
@@ -989,3 +989,15 @@ margin-right: 0px;
   {
     font-size: 16px
   }
+
+ .spacer
+ {
+ 	width: 100%;
+ 	height: 50px;
+ }
+
+.spacer-sm
+{
+	width: 100%;
+	height:20px;
+}

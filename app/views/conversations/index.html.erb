@@ -1,12 +1,13 @@
 <div class = "bring-down page-container">
-<h1>All conversations</h1>
+	 <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+	<h1>All conversations</h1>
 
-<% @conversations.each do |conversation| %>
-	<div>
-		<%= link_to conversation.subject, conversation_path(conversation), class: "black-font" %>
-	</div>
-<% end %>
-
-<%= link_to "New Conversation", new_conversation_path, class: "black-font" %>
-
+	<% @conversations.each do |conversation| %>
+		<div>
+			<%= link_to conversation.subject, conversation_path(conversation), class: "black-font" %>
+		</div>
+	<% end %>
+	<%= link_to "New Conversation", new_conversation_path, class: "black-font" %>
 </div>

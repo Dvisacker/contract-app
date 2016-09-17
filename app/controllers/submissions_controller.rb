@@ -64,10 +64,12 @@ class SubmissionsController < ApplicationController
 
     respond_to do |format|
       if @submission.save
-        format.html { redirect_to @submission.challenge, notice: 'Submission was successfully created.' }
+         flash[:success] = "Your submission was saved successfully"
+        format.html { redirect_to @submission.challenge }
         format.json { render :show, status: :created, location: @submission.challenge }
       else
-        format.html { redirect_to @submission.challenge, notice: 'Please enter a submission' }
+        flash[:danger] = 'Your submission could not be saved. Please try again'
+        format.html { redirect_to @submission.challenge }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
@@ -78,9 +80,11 @@ class SubmissionsController < ApplicationController
   def update
     respond_to do |format|
       if @submission.update(submission_params)
-        format.html { redirect_to @submission.challenge, notice: 'Submission was successfully updated.' }
+        flash[:success] = "Your submission was successfully updated"
+        format.html { redirect_to @submission.challenge }
         format.json { render :show, status: :ok, location: @submission.challenge }
       else
+        flash[:danger] = "Your submission could not be updated. Please try again"
         format.html { render :edit }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
@@ -90,13 +94,13 @@ class SubmissionsController < ApplicationController
   # DELETE /submissions/1
   # DELETE /submissions/1.json
   def destroy
-
     challenge = Challenge.find(params[:challenge_id])
-    @submission = challenge.submission.find(params[:id])
+    @submission = @challenge.submission.find(params[:id])
     @submission.destroy
 
     respond_to do |format|
-      format.html { redirect_to(challenges_url, :notice => 'Submission was successfully deleted') }
+      flash[:success] = 'Your submission was successfully deleted'
+      format.html { redirect_to(challenges_url) }
       format.xml  { render :xml => @submission, :status => :created, :location => @submission.challenge }
     end
   end
