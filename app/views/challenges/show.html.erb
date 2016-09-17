@@ -16,6 +16,20 @@
 <div class="page-container">
   <div class="bring-down page-padding">
 
+
+    <div class="row ">
+      <div class="col-sm-offset-2 col-sm-8">
+        <% flash.each do |key, value| %>
+          <div class="spacer-sm"></div>
+          <div class="alert alert-<%= key %>">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          <strong><%= value %></strong>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="spacer-sm"></div>
+
     <h2>Challenge Statement</h2><br>
       <div class="row">
         <div class="col-sm-12">
@@ -65,7 +79,6 @@
 
 
           <%- if current_user %>
-            <%- if (current_user.user_type?) %>
 
             <div class="row">
               <div class="col-sm-offset-3 col-sm-6">
@@ -75,8 +88,6 @@
               </div>
             </div>
 
-          <% else %>
-
             <div class="row ">
               <div class="col-sm-offset-3 col-sm-6">
                 <div class="btn btn-medium btn-margin margin-top-bottom">
@@ -84,8 +95,6 @@
                 </div>
               </div>
             </div>
-
-          <% end %>
 
             <% else %> 
             <div class="row margin-top">

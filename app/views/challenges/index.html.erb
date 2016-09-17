@@ -1,10 +1,18 @@
 <!-- Page content begin -->
 <div class="page-container">
-
   <div class="bring-down">
-  <!-- Notice -->
-  <!-- <p id="notice" class="alert alert-dismissible alert-info"><%= notice %></p> -->
 
+  <!-- Notice -->
+
+  <div class="row ">
+    <div class="col-sm-offset-2 col-sm-8">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <%= value %></div>
+      <% end %>
+    </div>
+  </div>
 
   <!-- Page header -->
   <div class="header-container">
@@ -43,7 +51,7 @@
             <%- if current_user %>
               <%- if (current_user.user_type?) %>
                 <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-                <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Destroy', challenge_path(challenge.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <%else%>
               <%end%>
             <%end%>

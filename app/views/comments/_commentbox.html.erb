@@ -1,6 +1,6 @@
 <style>
   .commentbox {
-    height: 500px;
+    max-height: 500px;
     overflow: scroll;
   }
 
@@ -13,37 +13,22 @@
     <div class="col-sm-6">
       <div class="panel panel-default">
 
-    <%= form_for [@challenge,@comment] do |f| %>
-
-        <% if @comment.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2><br>
-            <ul>
-              <% @comment.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-            <br>
-          </div>
-        <% end %>
-
-
-        <div class="row">
-          <div class="col-sm-12">
-            <%= f.text_area :body, placeholder: "Write your comment ...", id: "commentbody" %>
-            <%= f.hidden_field :user_id %>
-            <%= f.hidden_field :challenge_id %>
-           </div><!-- /col-sm-5 -->
-        </div><!-- /row -->
-
-        <div class="actions">
+        <%= form_for [@challenge,@comment] do |f| %>
           <div class="row">
             <div class="col-sm-12">
-              <%= f.submit "Post Comment", :class => "btn btn-margin" %>
+              <%= f.text_area :body, placeholder: "Write your comment ...", id: "commentbody" %>
+              <%= f.hidden_field :user_id %>
+              <%= f.hidden_field :challenge_id %>
+             </div><!-- /col-sm-5 -->
+          </div><!-- /row -->
+
+          <div class="actions">
+            <div class="row">
+              <div class="col-sm-12">
+                <%= f.submit "Post Comment", :class => "btn btn-margin" %>
+              </div>
             </div>
           </div>
-        </div> 
-
     <% end %>
 
 <div class="commentbox">

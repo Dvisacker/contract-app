@@ -1,0 +1,67 @@
+<style>
+  .font-bigger
+  {
+    font-size: 16px
+  }
+
+  .towards-bottom {
+    margin-top: 100px;
+  }
+
+  .margin-top {
+    margin-top: 50px;
+  }
+</style>
+
+<div class="page-container">
+  <div class="bring-down page-padding">
+  
+    <div class="row ">
+      <div class="col-sm-offset-2 col-sm-8">
+        <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <h2>Contract Idea Description</h2><br>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel-bordered">
+          <div class="panel-body">
+            <p class = "text-justify font-bigger">
+              <strong><%= @user_contract.title %></strong><br><br>
+              <%= @user_contract.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <h2>Contract Code</h2><br>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel-bordered">
+          <div class="panel-body">
+            <textarea class = "codemirror-textarea"><%= @user_contract.code %></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h2>Contract Code</h2><br>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel-bordered">
+          <div class="panel-body">
+            <textarea class = "codemirror-textarea"><%= @user_contract.code %></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

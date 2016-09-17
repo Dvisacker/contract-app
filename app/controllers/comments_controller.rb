@@ -49,10 +49,12 @@ class CommentsController < ApplicationController
 
   respond_to do |format|
     if @comment.save
-      format.html { redirect_to(@comment.challenge, :notice => 'Comment was successfully created.') }
+      flash[:success] = 'Your comment was successfully posted'
+      format.html { redirect_to(@comment.challenge) }
       format.xml  { render :xml => @comment, :status => :created, :location => @comment.challenge}
     else
-      format.html { redirect_to(@comment.challenge, :notice => 'Please enter a comment.') }
+      flash[:danger] = 'Your comment could not be posted. Please try again'
+      format.html { redirect_to(@comment.challenge) }
       format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
     end
   end
@@ -66,10 +68,12 @@ end
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
+        flash[:success] = 'Your comment was successfully updated'
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@comment.challenge, @comment], :notice => 'Comment was successfully updated.') }
+        format.html { redirect_to([@comment.challenge, @comment]) }
         format.xml  { head :ok }
       else
+        flash[:danger] = 'Your comment could not be updated. Please try again'
         format.html { render :action => "edit" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
@@ -83,10 +87,11 @@ end
     challenge = Challenge.find(params[:challenge_id])
     @comment = challenge.comments.find(params[:id])
     @comment.destroy
+    flash[:info] = 'Your comment was successfully deleted'
 
     respond_to do |format|
       #1st argument reference the path /posts/:post_id/comments/
-      format.html { redirect_to(@comment.challenge, :notice => 'Comment was successfully deleted') }
+      format.html { redirect_to(@comment.challenge, :info => 'Comment was successfully deleted') }
       format.xml  { render :xml => @comment, :status => :created, :location => @comment.challenge }
     end
   end

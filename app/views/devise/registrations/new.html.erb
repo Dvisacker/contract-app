@@ -11,38 +11,42 @@
 
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
-  <%= devise_error_messages! %>
 
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <%= devise_error_messages! %>
+  </div>
+</div>
 
-  <div class="form-group">
-    <div class="row">
-      <div class="col-sm-offset-4 col-sm-4">
-          <p class="form-margin"><strong>Email</strong></p>
-          <%= f.email_field :email, class: "form-control" %>
-          <p class="form-margin"><strong>Username</strong></p>
-          <%= f.text_field :username, class: "form-control" %>
-          <p class="form-margin"><strong>Password</strong></p>
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-          <p class="form-margin"><strong>Password Confirmation</strong></p>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-      </div>
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <p class="form-margin"><strong>Email</strong></p>
+      <%= f.email_field :email, class: "form-control" %>
+      <p class="form-margin"><strong>Username</strong></p>
+      <%= f.text_field :username, class: "form-control" %>
+      <p class="form-margin"><strong>Password</strong></p>
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      <p class="form-margin"><strong>Password Confirmation</strong></p>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
     </div>
   </div>
+</div>
 
-  <div class="form-group ">
+<div class="form-group ">
   <div class="row">
-      <div class="col-sm-offset-4 col-sm-4 margin-top-bottom-lg">
-          <%= f.submit "Register", class: "submit-button btn btn-medium btn-margin" %>
-      </div>
-      </div>
+    <div class="col-sm-offset-4 col-sm-4 margin-top-bottom-lg">
+      <%= f.submit "Register", class: "submit-button btn btn-medium btn-margin" %>
+    </div>
   </div>
+</div>
 
-  <div class="form-group center-text ">
+<div class="form-group center-text ">
   <div class="row">
-      <div class="col-sm-offset-3 col-sm-6">
-          <%= render "devise/shared/links" %>
-      </div>
-      </div>
+    <div class="col-sm-offset-3 col-sm-6">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
+</div>
 
 <% end %>

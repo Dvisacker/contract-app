@@ -110,6 +110,9 @@ border-radius: 4px;
 
 <div class="page-container">
 	<div class="bring-down page-padding">
+	  <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 		<h1 class = "text-center margin-top-bottom"><strong><%= @user.username %></strong></h1>
 		
 		<div id="intro-panel">
@@ -134,7 +137,7 @@ border-radius: 4px;
 						<div class="panel-widget mini-panel text-center">
 							<div class="panel-body">
 								<i class="fa fa-comments fa-2x" aria-hidden="true"></i><br />
-								<span class="number-big"><%= current_user.number_of_comments %></span><br />
+								<span class="number-big"><%= comment_count(current_user) %></span><br />
 								<b>COMMENTS</b>
 							</div>
 						</div>	
@@ -144,7 +147,7 @@ border-radius: 4px;
 						<div class="panel-widget mini-panel text-center">
 							<div class="panel-body">
 							<i class="fa fa-file-code-o fa-2x" aria-hidden="true"></i><br />
-							<span class="number-big"><%= current_user.number_of_submissions %></span><br />
+							<span class="number-big"><%= submission_count(current_user) %></span><br />
 							<b>SUBMISSIONS</b>
 							
 							</div>
@@ -168,7 +171,9 @@ border-radius: 4px;
 
 					    <div class="row">
       						<div class="col-sm-12">
-        					<%= link_to "View your submissions", user_submissions_path(current_user), :class => "btn btn-margin" %>
+        					<%= link_to "View your submissions", user_submissions_path(current_user), :class => "btn btn-margin margin-top-bottom-sm" %>
+        					<%= link_to "View your contract submissions", user_user_contracts_path(current_user), :class => "btn btn-margin margin-top-bottom-sm" %>
+        					<%= link_to "View your contract idea submissions", user_user_contract_ideas_path(current_user), :class => "btn btn-margin margin-top-bottom-sm" %>
       						</div>
       					</div>
 						<div class="row">

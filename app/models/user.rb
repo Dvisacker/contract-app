@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
   has_many :submissions
+  has_many :user_contracts
+  has_many :user_contract_ideas
 
-   def index
+  def index
      @users = User.all
    end
 
